@@ -58,9 +58,10 @@ class ClinicalTranslator:
 
         return coverage, precision
 
-    def get_clinical_profiles(self, X_data, Y_data, max_rules_per_class=4):
+    def generate_clinical_profiles(self, X_data, Y_data, max_rules_per_class=5):
         """
         Extracts rules and ranks them by their Coverage (Support) on the provided dataset.
+        Removes duplicate rules to ensure diversity in extracted profiles.
         """
         report = []
         report.append("================ CLINICAL PROFILE RANKING ================\n")
@@ -70,11 +71,12 @@ class ClinicalTranslator:
             report.append(f"--- DIAGNOSTIC RULES FOR {status} ---")
             
             valid_rules = []
+            seen_rules = set()  # Track unique rule texts to avoid duplicates
             
             # Extract and evaluate all positive clauses
             for j in range(0, self.tm.number_of_clauses, 2):
                 rule_text = self._decode_clause(i, j)
-                if rule_text:
+                if rule_text and rule_text not in seen_rules:  # Skip empty and duplicate rules
                     coverage, precision = self._evaluate_coverage(i, j, X_data, Y_data)
                     # Only keep rules that actually cover at least some patients
                     if coverage > 0:
@@ -83,6 +85,10 @@ class ClinicalTranslator:
                             'coverage': coverage,
                             'precision': precision
                         })
+                        seen_rules.add(rule_text)
+            
+            # DEBUG: Print unique rules found
+            print(f"[DEBUG] Class {i} ({status}): Found {len(valid_rules)} unique rules out of {self.tm.number_of_clauses // 2} clauses")
             
             # Sort rules by highest coverage (Support)
             sorted_rules = sorted(valid_rules, key=lambda x: x['coverage'], reverse=True)

@@ -1,0 +1,80 @@
+=================================================================
+ TFG CLINICAL REPORT: EPISTATIC RULE COMPARISON
+ Dataset: SIMULATED | Total Patients: 3000
+ Legend: T1 (Low), T2 (Medium), T3 (High)
+=================================================================
+
+-----------------------------------------------------------------
+ PART 1: PURE TSETLIN MACHINE (100% Topologic Vocabulary)
+-----------------------------------------------------------------
+Available Biomarkers (40): IL-6, IL-10, TNF-a, Biomarker_3, Biomarker_4, Biomarker_5, Biomarker_6, Biomarker_7, Biomarker_8, Biomarker_9, Biomarker_10, Biomarker_11, Biomarker_12, Biomarker_13, Biomarker_14, Biomarker_15, Biomarker_16, Biomarker_17, Biomarker_18, Biomarker_19, Biomarker_20, Biomarker_21, Biomarker_22, Biomarker_23, Biomarker_24, Biomarker_25, Biomarker_26, Biomarker_27, Biomarker_28, Biomarker_29, Biomarker_30, Biomarker_31, Biomarker_32, Biomarker_33, Biomarker_34, Biomarker_35, Biomarker_36, Biomarker_37, Biomarker_38, Biomarker_39
+
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 42.2% | Precision: 95.9%)
+  IF ( [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 35.1% | Precision: 86.0%)
+  IF ( [Biomarker_8_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_14_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 34.5% | Precision: 85.1%)
+  IF ( [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_10_Bit2 NOT in Q2] AND [Biomarker_18_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 34.5% | Precision: 86.3%)
+  IF ( [Biomarker_16_Bit2 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_5_Bit2 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 62.3% | Precision: 51.9%)
+  IF ( [IL-6_Bit1 in Q2] )
+
+  Rank #2 (Coverage: 61.3% | Precision: 51.1%)
+  IF ( [IL-10_Bit1 in Q2] )
+
+  Rank #3 (Coverage: 59.4% | Precision: 49.5%)
+  IF ( [IL-6_Bit2 NOT in Q1] )
+
+  Rank #4 (Coverage: 39.9% | Precision: 73.5%)
+  IF ( [IL-10_Bit1 in Q2] AND [Biomarker_15_Bit2 in Q1] AND [IL-6_Bit2 NOT in Q2] )
+
+
+
+
+-----------------------------------------------------------------
+ PART 2: HYBRID sPLS-DA + TM (Algebraically Filtered Vocabulary)
+-----------------------------------------------------------------
+Surviving Biomarkers (27): IL-6, IL-10, TNF-a, Biomarker_5, Biomarker_7, Biomarker_8, Biomarker_9, Biomarker_10, Biomarker_11, Biomarker_12, Biomarker_13, Biomarker_14, Biomarker_16, Biomarker_17, Biomarker_18, Biomarker_22, Biomarker_24, Biomarker_26, Biomarker_28, Biomarker_29, Biomarker_31, Biomarker_33, Biomarker_34, Biomarker_35, Biomarker_36, Biomarker_37, Biomarker_38
+
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 42.2% | Precision: 95.9%)
+  IF ( [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 35.3% | Precision: 84.6%)
+  IF ( [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_8_Bit1 NOT in Q2] AND [Biomarker_14_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 34.9% | Precision: 86.7%)
+  IF ( [Biomarker_9_Bit1 in Q1] AND [Biomarker_14_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 34.3% | Precision: 83.6%)
+  IF ( [IL-6_Bit2 in Q1] AND [Biomarker_5_Bit2 NOT in Q2] AND [Biomarker_16_Bit1 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 62.3% | Precision: 51.9%)
+  IF ( [IL-6_Bit1 in Q2] )
+
+  Rank #2 (Coverage: 38.4% | Precision: 94.7%)
+  IF ( [IL-6_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+  Rank #3 (Coverage: 37.8% | Precision: 94.6%)
+  IF ( [IL-10_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+  Rank #4 (Coverage: 34.7% | Precision: 28.9%)
+  IF ( [Biomarker_12_Bit1 NOT in Q1] )
+
+

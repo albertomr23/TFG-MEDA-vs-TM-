@@ -1,0 +1,122 @@
+================================================================================
+ CLINICAL KNOWLEDGE BASE - DATASET: REAL
+================================================================================
+
+--- ARCHITECTURE: Pure_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 52.6% | Precision: 35.7%)
+  IF ( [GM-CSF_Bit1 NOT in Q1] )
+
+  Rank #2 (Coverage: 47.4% | Precision: 90.0%)
+  IF ( [IL-16_Bit2 in Q1] AND [IFN-g_Bit2 NOT in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-1b_Bit1 NOT in Q2] AND [IL-4_Bit1 NOT in Q2] AND [IL-4_Bit2 NOT in Q1] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [IL-1a_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [Eotaxin-3_Bit2 NOT in Q1] )
+
+  Rank #3 (Coverage: 47.4% | Precision: 100.0%)
+  IF ( [Eotaxin-3_Bit1 in Q2] AND [IFN-g_Bit1 NOT in Q1] AND [IFN-g_Bit1 NOT in Q2] AND [IFN-g_Bit2 NOT in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-4_Bit1 NOT in Q1] AND [GM-CSF_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q1] AND [IL-12/IL-23p40_Bit1 NOT in Q1] AND [IL-15_Bit1 NOT in Q2] AND [MIP-1b_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 42.1% | Precision: 100.0%)
+  IF ( [IL-16_Bit2 in Q1] AND [Eotaxin-3_Bit1 in Q2] AND [IL-2_Bit2 NOT in Q1] AND [TNF-a_Bit1 NOT in Q1] AND [IL-5_Bit1 NOT in Q1] AND [IL-7_Bit1 NOT in Q1] )
+
+  Rank #5 (Coverage: 42.1% | Precision: 100.0%)
+  IF ( [Eotaxin-3_Bit1 in Q1] AND [IL-2_Bit2 NOT in Q2] AND [IL-4_Bit1 NOT in Q1] AND [IL-4_Bit2 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q1] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-12/IL-23p40_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q1] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 42.9% | Precision: 100.0%)
+  IF ( [VEGF_Bit1 in Q2] )
+
+  Rank #2 (Coverage: 42.9% | Precision: 87.1%)
+  IF ( [IFN-g_Bit2 in Q1] AND [IL-1b_Bit1 in Q1] AND [IL-13_Bit1 in Q1] AND [TNF-a_Bit1 in Q1] AND [IL-5_Bit1 in Q1] AND [IL-12/IL-23p40_Bit1 in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] )
+
+  Rank #3 (Coverage: 42.9% | Precision: 100.0%)
+  IF ( [MIP-1b_Bit1 in Q1] AND [Eotaxin-3_Bit2 in Q1] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] AND [Eotaxin-3_Bit1 NOT in Q2] AND [TARC_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 39.7% | Precision: 100.0%)
+  IF ( [IL-17A_Bit2 in Q1] AND [MIP-1b_Bit1 in Q1] AND [MIP-1a_Bit1 in Q1] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] AND [MIP-1b_Bit2 NOT in Q2] )
+
+  Rank #5 (Coverage: 33.3% | Precision: 100.0%)
+  IF ( [IFN-g_Bit2 in Q1] AND [IL-1b_Bit2 in Q1] AND [GM-CSF_Bit1 in Q1] AND [VEGF_Bit1 in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-16_Bit1 NOT in Q1] AND [TNFb_Bit1 NOT in Q2] AND [Eotaxin-3_Bit1 NOT in Q2] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: sPLSDA_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 47.4% | Precision: 90.0%)
+  IF ( [IL-4_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q1] AND [IL-7_Bit1 NOT in Q2] AND [Eotaxin_Bit2 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q2] )
+
+  Rank #2 (Coverage: 47.4% | Precision: 69.2%)
+  IF ( [TNF-a_Bit2 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q1] )
+
+  Rank #3 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [Eotaxin-3_Bit1 in Q1] AND [Eotaxin-3_Bit1 in Q2] AND [IFN-g_Bit1 NOT in Q1] AND [IL-4_Bit2 NOT in Q1] AND [IL-4_Bit2 NOT in Q2] AND [IL-6_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [VEGF_Bit1 NOT in Q2] AND [VEGF_Bit2 NOT in Q2] AND [MIP-1b_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [Eotaxin-3_Bit1 in Q1] AND [IL-4_Bit2 NOT in Q1] AND [IL-6_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [IL-7_Bit1 NOT in Q1] AND [MIP-1b_Bit1 NOT in Q1] )
+
+  Rank #5 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [Eotaxin-3_Bit1 in Q2] AND [IFN-g_Bit1 NOT in Q2] AND [IL-4_Bit2 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q1] AND [IL-7_Bit1 NOT in Q1] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-15_Bit2 NOT in Q1] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 79.4% | Precision: 90.9%)
+  IF ( [MIP-1b_Bit1 in Q1] AND [IL-4_Bit1 NOT in Q1] AND [IL-13_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 66.7% | Precision: 93.3%)
+  IF ( [Eotaxin_Bit1 in Q1] AND [MIP-1b_Bit1 in Q1] AND [IL-4_Bit1 NOT in Q1] AND [IL-4_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] AND [IL-16_Bit1 NOT in Q2] )
+
+  Rank #3 (Coverage: 58.7% | Precision: 100.0%)
+  IF ( [Eotaxin_Bit1 in Q1] AND [MIP-1b_Bit1 in Q1] AND [Eotaxin-3_Bit2 in Q1] AND [IL-4_Bit1 NOT in Q1] AND [IL-6_Bit2 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-15_Bit1 NOT in Q1] )
+
+  Rank #4 (Coverage: 57.1% | Precision: 94.7%)
+  IF ( [IL-4_Bit2 in Q1] AND [MIP-1b_Bit1 in Q1] )
+
+  Rank #5 (Coverage: 54.0% | Precision: 97.1%)
+  IF ( [TNF-a_Bit2 in Q1] AND [MIP-1b_Bit1 in Q1] AND [IL-15_Bit1 NOT in Q1] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: Inverse_TM_SVM ---
+--- TOP 5 GEOMETRIC RULES FOR INFECTION (Class 1) ---
+Rank #1 [SVM Weight: +0.165]:
+  [IL-1b_Bit1 in Q1] AND [IL-12 p70_Bit2 in Q1] AND [IL-13_Bit1 in Q1] AND [TNF-a_Bit1 in Q1] AND [IL-5_Bit1 in Q1] AND [IL-7_Bit1 in Q1] AND [IL-12/IL-23p40_Bit2 in Q1] AND [TARC_Bit2 in Q2] AND [IL-12 p70_Bit2 NOT in Q2]
+
+Rank #2 [SVM Weight: +0.165]:
+  [IL-1b_Bit1 in Q1] AND [IL-1a_Bit2 in Q1] AND [TARC_Bit1 in Q1] AND [TARC_Bit1 in Q2] AND [IFN-g_Bit2 NOT in Q2] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-4_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q2] AND [IL-1a_Bit2 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-15_Bit1 NOT in Q1] AND [TNFb_Bit2 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] AND [VEGF_Bit2 NOT in Q1] AND [VEGF_Bit2 NOT in Q2] AND [Eotaxin_Bit2 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q1] AND [MIP-1b_Bit1 NOT in Q2] AND [Eotaxin-3_Bit2 NOT in Q2] AND [IP-10_Bit1 NOT in Q1] AND [IP-10_Bit1 NOT in Q2]
+
+Rank #3 [SVM Weight: +0.163]:
+  [IFN-g_Bit1 in Q1] AND [IL-1b_Bit1 in Q1] AND [IL-1b_Bit1 in Q2] AND [IL-1b_Bit2 in Q1] AND [IL-4_Bit1 in Q1] AND [IL-4_Bit2 in Q1] AND [IL-12 p70_Bit2 in Q1] AND [TNF-a_Bit1 in Q1] AND [GM-CSF_Bit1 in Q1] AND [IL-7_Bit1 in Q1] AND [IL-12/IL-23p40_Bit1 in Q1] AND [IL-12/IL-23p40_Bit2 in Q1] AND [MIP-1b_Bit2 in Q1] AND [MIP-1a_Bit1 in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-2_Bit2 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [IL-17A_Bit2 NOT in Q1] AND [TNFb_Bit1 NOT in Q1] AND [TNFb_Bit2 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] AND [VEGF_Bit2 NOT in Q2] AND [Eotaxin_Bit2 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q1] AND [MIP-1b_Bit1 NOT in Q2] AND [Eotaxin-3_Bit1 NOT in Q2] AND [IP-10_Bit1 NOT in Q2]
+
+Rank #4 [SVM Weight: +0.144]:
+  [IL-12 p70_Bit2 in Q1] AND [GM-CSF_Bit2 in Q1] AND [IL-17A_Bit1 in Q1] AND [TNFb_Bit2 in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit2 NOT in Q2] AND [IL-4_Bit2 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [IL-12 p70_Bit1 NOT in Q1] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q1] AND [IL-1a_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit1 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-15_Bit2 NOT in Q1] AND [IL-17A_Bit2 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q2] AND [Eotaxin-3_Bit2 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q2]
+
+Rank #5 [SVM Weight: +0.120]:
+  [IFN-g_Bit1 in Q1] AND [IL-1b_Bit1 in Q1] AND [IL-1b_Bit2 in Q1] AND [IL-2_Bit2 in Q1] AND [IL-4_Bit1 in Q1] AND [IL-4_Bit2 in Q1] AND [IL-4_Bit2 in Q2] AND [IL-10_Bit2 in Q1] AND [IL-12 p70_Bit1 in Q1] AND [IL-12 p70_Bit2 in Q1] AND [IL-13_Bit1 in Q1] AND [IL-13_Bit2 in Q1] AND [TNF-a_Bit1 in Q1] AND [GM-CSF_Bit1 in Q1] AND [IL-7_Bit1 in Q1] AND [IL-12/IL-23p40_Bit1 in Q1] AND [IL-12/IL-23p40_Bit1 in Q2] AND [IL-12/IL-23p40_Bit2 in Q1] AND [IL-15_Bit2 in Q1] AND [IL-15_Bit2 in Q2] AND [MIP-1b_Bit2 in Q1] AND [Eotaxin-3_Bit2 in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-7_Bit1 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit2 NOT in Q2] AND [IL-17A_Bit1 NOT in Q2] AND [IL-17A_Bit2 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] AND [VEGF_Bit2 NOT in Q2] AND [Eotaxin_Bit1 NOT in Q2] AND [Eotaxin-3_Bit1 NOT in Q2] AND [IP-10_Bit2 NOT in Q2]
+
+--- TOP 5 GEOMETRIC RULES FOR HOMEOSTASIS (Class 0) ---
+Rank #1 [SVM Weight: -0.136]:
+  [Eotaxin-3_Bit2 in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-2_Bit2 NOT in Q2] AND [IL-6_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit1 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q1] AND [TNFb_Bit1 NOT in Q2]
+
+Rank #2 [SVM Weight: -0.129]:
+  [IL-1b_Bit1 in Q1] AND [IL-1a_Bit2 in Q1] AND [IL-1b_Bit1 NOT in Q2] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-2_Bit2 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [GM-CSF_Bit1 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit1 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q2]
+
+Rank #3 [SVM Weight: -0.128]:
+  [IL-1b_Bit1 NOT in Q2] AND [IL-2_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-12/IL-23p40_Bit2 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [Eotaxin_Bit2 NOT in Q2] AND [Eotaxin-3_Bit2 NOT in Q2] AND [TARC_Bit1 NOT in Q2]
+
+Rank #4 [SVM Weight: -0.124]:
+  [IFN-g_Bit1 in Q1] AND [IFN-g_Bit1 in Q2] AND [IL-1b_Bit1 in Q1] AND [TNF-a_Bit1 in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-16_Bit1 NOT in Q1] AND [TNFb_Bit1 NOT in Q2]
+
+Rank #5 [SVM Weight: -0.123]:
+  [TARC_Bit1 in Q1] AND [IL-1b_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] AND [IL-13_Bit1 NOT in Q1] AND [IL-13_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-1a_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q2] AND [IL-16_Bit2 NOT in Q2] AND [IL-17A_Bit2 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] AND [TNFb_Bit2 NOT in Q2] AND [VEGF_Bit1 NOT in Q1] AND [IP-10_Bit1 NOT in Q2]
+
+
+--------------------------------------------------------------------------------
+

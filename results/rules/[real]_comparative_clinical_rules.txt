@@ -1,0 +1,80 @@
+=================================================================
+ TFG CLINICAL REPORT: EPISTATIC RULE COMPARISON
+ Dataset: REAL | Total Patients: 82
+ Legend: T1 (Low), T2 (Medium), T3 (High)
+=================================================================
+
+-----------------------------------------------------------------
+ PART 1: PURE TSETLIN MACHINE (100% Topologic Vocabulary)
+-----------------------------------------------------------------
+Available Biomarkers (49): IFN-g, IL-1b, IL-2, IL-4, IL-6, IL-10, IL-12 p70, IL-13, TNF-a, GM-CSF, IL-1a, IL-5, IL-7, IL-12/IL-23p40, IL-15, IL-16, IL-17A, TNFb, VEGF, Eotaxin, MIP-1b, Eotaxin-3, TARC, IP-10, MIP-1a, MCP-1, MDC, MCP-4, IL-6R, IL-18, IL-22, TGFb, IL-8, MMP substr, HNE substr, Zym, MMP8 Total, HNE, Calprotectin, SPD, Total Cell Count in Bag, % of Live CD3+ cells in Bag, % of Live CD14+  cells in Bag, % of Live CD15+  cells in Bag, CD4/CD8, CD4/CD3 (%), CD8/CD3 (%), g9T/CD3 (%), d2T/CD3 (%) 
+
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 42.1% | Precision: 88.9%)
+  IF ( [IL-17A_Bit1 NOT in Q1] AND [MIP-1b_Bit1 NOT in Q1] )
+
+  Rank #2 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [IL-16_Bit2 in Q1] AND [Eotaxin-3_Bit1 in Q1] AND [Eotaxin-3_Bit1 in Q2] AND [IFN-g_Bit2 NOT in Q1] AND [IL-1b_Bit1 NOT in Q2] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit1 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [TNFb_Bit1 NOT in Q2] AND [VEGF_Bit1 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 36.8% | Precision: 46.7%)
+  IF ( [IL-15_Bit1 in Q1] AND [Eotaxin_Bit2 in Q1] AND [IFN-g_Bit2 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [IL-16_Bit2 in Q1] AND [Eotaxin-3_Bit1 in Q1] AND [IFN-g_Bit2 NOT in Q1] AND [IL-1b_Bit1 NOT in Q2] AND [IL-1b_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q2] AND [IL-2_Bit1 NOT in Q1] AND [IL-4_Bit1 NOT in Q1] AND [IL-4_Bit1 NOT in Q2] AND [IL-4_Bit2 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q1] AND [IL-13_Bit2 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [TNF-a_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [IL-1a_Bit1 NOT in Q2] AND [IL-1a_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit1 NOT in Q1] AND [IL-12/IL-23p40_Bit1 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q1] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [IL-17A_Bit1 NOT in Q2] AND [MIP-1b_Bit1 NOT in Q1] AND [Eotaxin-3_Bit2 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 47.6% | Precision: 100.0%)
+  IF ( [IFN-g_Bit1 in Q1] AND [IFN-g_Bit2 in Q1] AND [IL-1b_Bit2 in Q1] AND [IL-1a_Bit1 in Q1] AND [IL-5_Bit2 in Q1] AND [MIP-1b_Bit1 in Q1] AND [IL-2_Bit1 NOT in Q1] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit2 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 42.9% | Precision: 93.1%)
+  IF ( [TNFb_Bit2 in Q1] AND [Eotaxin-3_Bit2 in Q1] AND [IL-2_Bit1 NOT in Q1] AND [IL-4_Bit2 NOT in Q2] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q2] )
+
+  Rank #3 (Coverage: 41.3% | Precision: 83.9%)
+  IF ( [TNFb_Bit2 in Q1] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [TARC_Bit1 NOT in Q2] AND [TARC_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 41.3% | Precision: 100.0%)
+  IF ( [IL-13_Bit2 in Q1] AND [VEGF_Bit1 in Q1] AND [VEGF_Bit2 in Q1] AND [Eotaxin_Bit1 in Q1] AND [MIP-1b_Bit1 in Q1] AND [Eotaxin-3_Bit2 in Q1] AND [IL-2_Bit1 NOT in Q1] AND [IL-2_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q1] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q2] AND [IL-12/IL-23p40_Bit2 NOT in Q2] AND [IL-16_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [TNFb_Bit1 NOT in Q2] )
+
+
+
+
+-----------------------------------------------------------------
+ PART 2: HYBRID sPLS-DA + TM (Algebraically Filtered Vocabulary)
+-----------------------------------------------------------------
+Surviving Biomarkers (36): IFN-g, IL-1b, IL-4, IL-6, IL-10, IL-12 p70, IL-13, TNF-a, GM-CSF, IL-1a, IL-5, IL-7, IL-15, IL-16, IL-17A, VEGF, Eotaxin, MIP-1b, Eotaxin-3, TARC, IP-10, MIP-1a, MCP-1, MDC, MCP-4, IL-6R, IL-18, IL-8, MMP substr, Zym, MMP8 Total, HNE, Total Cell Count in Bag, % of Live CD3+ cells in Bag, % of Live CD14+  cells in Bag, % of Live CD15+  cells in Bag
+
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 52.6% | Precision: 90.9%)
+  IF ( [MIP-1b_Bit1 in Q1] AND [IFN-g_Bit1 NOT in Q1] AND [IFN-g_Bit1 NOT in Q2] AND [IFN-g_Bit2 NOT in Q2] AND [IL-1b_Bit1 NOT in Q2] AND [IL-1b_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q2] AND [IL-4_Bit1 NOT in Q1] AND [IL-4_Bit1 NOT in Q2] AND [IL-4_Bit2 NOT in Q1] AND [IL-4_Bit2 NOT in Q2] AND [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-13_Bit1 NOT in Q2] AND [TNF-a_Bit1 NOT in Q1] AND [TNF-a_Bit1 NOT in Q2] AND [TNF-a_Bit2 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-1a_Bit2 NOT in Q1] AND [IL-5_Bit1 NOT in Q2] AND [IL-7_Bit1 NOT in Q1] AND [IL-15_Bit1 NOT in Q1] AND [IL-15_Bit2 NOT in Q2] AND [VEGF_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 52.6% | Precision: 90.9%)
+  IF ( [MIP-1b_Bit1 in Q2] AND [IL-4_Bit2 NOT in Q1] AND [TNF-a_Bit1 NOT in Q1] )
+
+  Rank #3 (Coverage: 47.4% | Precision: 90.0%)
+  IF ( [IL-4_Bit2 NOT in Q1] AND [IL-7_Bit2 NOT in Q1] AND [Eotaxin_Bit1 NOT in Q1] )
+
+  Rank #4 (Coverage: 47.4% | Precision: 100.0%)
+  IF ( [MIP-1b_Bit1 in Q2] AND [IFN-g_Bit1 NOT in Q1] AND [IFN-g_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q1] AND [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-13_Bit2 NOT in Q1] AND [IL-13_Bit2 NOT in Q2] AND [GM-CSF_Bit1 NOT in Q2] AND [IL-1a_Bit1 NOT in Q2] AND [IL-1a_Bit2 NOT in Q1] AND [IL-5_Bit1 NOT in Q2] AND [IL-5_Bit2 NOT in Q2] AND [IL-7_Bit2 NOT in Q1] AND [IL-15_Bit1 NOT in Q1] AND [IL-16_Bit1 NOT in Q2] AND [Eotaxin_Bit2 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 100.0% | Precision: 76.8%)
+  IF ( [IL-12 p70_Bit1 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] )
+
+  Rank #2 (Coverage: 66.7% | Precision: 95.5%)
+  IF ( [IFN-g_Bit2 in Q1] AND [IL-1b_Bit1 in Q1] AND [IL-4_Bit1 in Q1] AND [GM-CSF_Bit2 in Q1] AND [IL-1b_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-5_Bit1 NOT in Q2] AND [IL-7_Bit1 NOT in Q1] AND [IL-15_Bit1 NOT in Q2] )
+
+  Rank #3 (Coverage: 60.3% | Precision: 97.4%)
+  IF ( [IFN-g_Bit2 in Q1] AND [IL-4_Bit1 in Q1] AND [GM-CSF_Bit2 in Q1] AND [MIP-1b_Bit2 in Q1] AND [IL-1b_Bit2 NOT in Q1] AND [IL-10_Bit2 NOT in Q1] AND [IL-12 p70_Bit1 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 52.4% | Precision: 100.0%)
+  IF ( [IFN-g_Bit2 in Q1] AND [GM-CSF_Bit1 in Q1] AND [GM-CSF_Bit2 in Q1] AND [Eotaxin_Bit1 in Q1] AND [MIP-1b_Bit2 in Q1] AND [IL-1b_Bit2 NOT in Q1] AND [IL-1b_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [IL-10_Bit2 NOT in Q1] AND [IL-10_Bit2 NOT in Q2] AND [IL-12 p70_Bit1 NOT in Q2] AND [IL-12 p70_Bit2 NOT in Q2] AND [GM-CSF_Bit1 NOT in Q2] AND [GM-CSF_Bit2 NOT in Q2] AND [IL-7_Bit1 NOT in Q2] AND [IL-15_Bit1 NOT in Q2] )
+
+

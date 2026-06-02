@@ -109,7 +109,7 @@ class SmartBooleanizer(BaseEstimator, TransformerMixin):
         else:
             return X_discrete
 
-    def _calculate_thresholds(self, feature_data, feature_name):
+    def _calculate_thresholds(self, feature_data):
         """
         Internal mathematical method to compute bin edges based on the chosen strategy.
         Args:

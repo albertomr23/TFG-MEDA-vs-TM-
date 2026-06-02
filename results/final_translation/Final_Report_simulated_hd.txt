@@ -1,0 +1,122 @@
+================================================================================
+ CLINICAL KNOWLEDGE BASE - DATASET: SIMULATED_HD
+================================================================================
+
+--- ARCHITECTURE: Pure_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 38.2% | Precision: 100.0%)
+  IF ( [Biomarker_873_Bit1 in Q1] AND [Biomarker_1233_Bit2 in Q1] AND [Biomarker_1600_Bit2 in Q1] AND [Biomarker_1478_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 35.3% | Precision: 92.3%)
+  IF ( [Biomarker_1427_Bit2 in Q1] AND [Biomarker_1814_Bit1 in Q1] AND [Biomarker_1116_Bit2 NOT in Q2] AND [Biomarker_1965_Bit1 NOT in Q2] )
+
+  Rank #3 (Coverage: 35.3% | Precision: 100.0%)
+  IF ( [Biomarker_1296_Bit1 in Q1] AND [Biomarker_182_Bit1 NOT in Q2] AND [Biomarker_313_Bit2 NOT in Q2] AND [Biomarker_500_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 32.4% | Precision: 91.7%)
+  IF ( [Biomarker_833_Bit2 in Q1] AND [Biomarker_1006_Bit2 in Q1] AND [Biomarker_1899_Bit1 in Q1] AND [Biomarker_93_Bit2 NOT in Q2] AND [Biomarker_1011_Bit2 NOT in Q2] )
+
+  Rank #5 (Coverage: 29.4% | Precision: 100.0%)
+  IF ( [Biomarker_1683_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [Biomarker_1032_Bit2 NOT in Q2] AND [Biomarker_1074_Bit2 NOT in Q2] AND [Biomarker_1970_Bit2 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 50.0% | Precision: 100.0%)
+  IF ( [Biomarker_399_Bit2 in Q1] AND [Biomarker_730_Bit2 in Q1] AND [Biomarker_1953_Bit1 in Q1] AND [Biomarker_782_Bit2 NOT in Q2] AND [Biomarker_1626_Bit2 NOT in Q2] )
+
+  Rank #2 (Coverage: 50.0% | Precision: 61.5%)
+  IF ( [Biomarker_879_Bit1 in Q2] AND [Biomarker_1728_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 43.8% | Precision: 70.0%)
+  IF ( [Biomarker_228_Bit1 in Q1] AND [Biomarker_1308_Bit2 in Q1] AND [Biomarker_1420_Bit1 in Q1] AND [Biomarker_1933_Bit1 in Q1] AND [Biomarker_403_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 37.5% | Precision: 54.5%)
+  IF ( [Biomarker_861_Bit1 in Q1] AND [Biomarker_1264_Bit1 in Q2] )
+
+  Rank #5 (Coverage: 37.5% | Precision: 85.7%)
+  IF ( [Biomarker_1157_Bit1 in Q1] AND [Biomarker_1251_Bit1 in Q1] AND [Biomarker_117_Bit2 NOT in Q2] AND [Biomarker_210_Bit1 NOT in Q1] AND [Biomarker_577_Bit2 NOT in Q2] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: sPLSDA_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 29.4% | Precision: 100.0%)
+  IF ( [Biomarker_601_Bit2 in Q1] AND [Biomarker_1476_Bit2 in Q1] AND [Biomarker_1666_Bit2 in Q1] AND [Biomarker_1762_Bit2 in Q1] AND [Biomarker_1812_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q1] AND [Biomarker_664_Bit2 NOT in Q2] )
+
+  Rank #2 (Coverage: 29.4% | Precision: 100.0%)
+  IF ( [Biomarker_469_Bit1 in Q1] AND [Biomarker_546_Bit1 in Q1] AND [Biomarker_899_Bit2 in Q1] AND [Biomarker_1339_Bit2 in Q1] AND [Biomarker_1810_Bit1 in Q1] AND [Biomarker_1899_Bit2 in Q1] AND [Biomarker_1410_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 29.4% | Precision: 100.0%)
+  IF ( [Biomarker_313_Bit2 in Q1] AND [Biomarker_926_Bit2 in Q1] AND [Biomarker_964_Bit2 in Q1] AND [Biomarker_1260_Bit2 in Q1] AND [Biomarker_1489_Bit1 in Q1] AND [Biomarker_372_Bit1 NOT in Q2] AND [Biomarker_1094_Bit2 NOT in Q2] AND [Biomarker_1699_Bit2 NOT in Q2] AND [Biomarker_1756_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 26.5% | Precision: 90.0%)
+  IF ( [IL-10_Bit1 NOT in Q2] AND [Biomarker_380_Bit2 NOT in Q2] AND [Biomarker_547_Bit2 NOT in Q2] AND [Biomarker_696_Bit1 NOT in Q2] AND [Biomarker_1163_Bit2 NOT in Q2] AND [Biomarker_1934_Bit1 NOT in Q2] )
+
+  Rank #5 (Coverage: 26.5% | Precision: 100.0%)
+  IF ( [Biomarker_4_Bit1 in Q1] AND [Biomarker_1252_Bit1 in Q1] AND [Biomarker_1657_Bit2 in Q1] AND [Biomarker_1812_Bit1 in Q1] AND [Biomarker_90_Bit2 NOT in Q2] AND [Biomarker_97_Bit1 NOT in Q2] AND [Biomarker_672_Bit1 NOT in Q2] AND [Biomarker_932_Bit2 NOT in Q2] AND [Biomarker_1163_Bit2 NOT in Q2] AND [Biomarker_1707_Bit1 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 31.2% | Precision: 100.0%)
+  IF ( [Biomarker_192_Bit2 in Q1] AND [Biomarker_427_Bit1 in Q1] AND [Biomarker_1372_Bit1 in Q1] AND [Biomarker_1629_Bit2 in Q1] AND [Biomarker_1663_Bit1 in Q1] AND [Biomarker_1688_Bit2 in Q1] AND [Biomarker_1881_Bit2 in Q1] AND [Biomarker_1936_Bit1 in Q1] AND [Biomarker_4_Bit2 NOT in Q2] AND [Biomarker_75_Bit2 NOT in Q2] AND [Biomarker_76_Bit1 NOT in Q2] AND [Biomarker_132_Bit1 NOT in Q1] AND [Biomarker_132_Bit1 NOT in Q2] AND [Biomarker_151_Bit2 NOT in Q2] AND [Biomarker_616_Bit2 NOT in Q2] AND [Biomarker_621_Bit1 NOT in Q1] AND [Biomarker_727_Bit1 NOT in Q2] AND [Biomarker_859_Bit1 NOT in Q2] AND [Biomarker_1437_Bit1 NOT in Q2] AND [Biomarker_1471_Bit1 NOT in Q2] AND [Biomarker_1845_Bit2 NOT in Q2] AND [Biomarker_1935_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 25.0% | Precision: 100.0%)
+  IF ( [Biomarker_615_Bit1 in Q2] AND [Biomarker_972_Bit2 in Q2] AND [Biomarker_1347_Bit1 in Q1] )
+
+  Rank #3 (Coverage: 25.0% | Precision: 100.0%)
+  IF ( [Biomarker_142_Bit1 in Q1] AND [Biomarker_195_Bit1 in Q1] AND [Biomarker_340_Bit2 in Q1] AND [Biomarker_1407_Bit2 in Q1] AND [Biomarker_1498_Bit2 in Q1] AND [Biomarker_1545_Bit1 in Q2] AND [Biomarker_1053_Bit2 NOT in Q1] AND [Biomarker_1626_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 25.0% | Precision: 100.0%)
+  IF ( [Biomarker_220_Bit2 in Q1] AND [Biomarker_234_Bit1 in Q1] AND [Biomarker_318_Bit1 in Q1] AND [Biomarker_354_Bit2 in Q1] AND [Biomarker_372_Bit1 in Q1] AND [Biomarker_431_Bit1 in Q1] AND [Biomarker_433_Bit2 in Q2] AND [Biomarker_454_Bit1 in Q1] AND [Biomarker_520_Bit2 in Q1] AND [Biomarker_640_Bit2 in Q1] AND [Biomarker_719_Bit2 in Q2] AND [Biomarker_796_Bit1 in Q2] AND [Biomarker_815_Bit1 in Q1] AND [Biomarker_920_Bit2 in Q1] AND [Biomarker_1003_Bit1 in Q1] AND [Biomarker_1094_Bit2 in Q1] AND [Biomarker_1186_Bit2 in Q1] AND [Biomarker_1287_Bit1 in Q1] AND [Biomarker_1359_Bit1 in Q1] AND [Biomarker_1407_Bit2 in Q1] AND [Biomarker_1498_Bit2 in Q1] AND [Biomarker_1712_Bit2 in Q1] AND [Biomarker_1926_Bit2 in Q1] AND [IL-6_Bit2 NOT in Q1] AND [Biomarker_28_Bit1 NOT in Q1] AND [Biomarker_332_Bit1 NOT in Q2] AND [Biomarker_339_Bit2 NOT in Q1] AND [Biomarker_339_Bit2 NOT in Q2] AND [Biomarker_364_Bit1 NOT in Q2] AND [Biomarker_419_Bit2 NOT in Q2] AND [Biomarker_428_Bit2 NOT in Q2] AND [Biomarker_462_Bit2 NOT in Q1] AND [Biomarker_507_Bit1 NOT in Q2] AND [Biomarker_648_Bit1 NOT in Q2] AND [Biomarker_667_Bit1 NOT in Q2] AND [Biomarker_842_Bit2 NOT in Q2] AND [Biomarker_1132_Bit1 NOT in Q2] AND [Biomarker_1339_Bit2 NOT in Q2] AND [Biomarker_1390_Bit1 NOT in Q2] AND [Biomarker_1708_Bit1 NOT in Q2] AND [Biomarker_1715_Bit2 NOT in Q2] AND [Biomarker_1833_Bit2 NOT in Q2] )
+
+  Rank #5 (Coverage: 25.0% | Precision: 100.0%)
+  IF ( [Biomarker_557_Bit1 in Q2] AND [Biomarker_688_Bit2 in Q2] AND [Biomarker_1038_Bit1 in Q2] AND [Biomarker_1074_Bit2 in Q1] AND [Biomarker_1365_Bit2 in Q1] AND [Biomarker_1445_Bit1 in Q1] AND [Biomarker_1468_Bit2 in Q1] AND [Biomarker_1890_Bit2 in Q1] AND [Biomarker_1934_Bit1 in Q1] AND [Biomarker_674_Bit2 NOT in Q2] AND [Biomarker_1393_Bit1 NOT in Q1] AND [Biomarker_1597_Bit1 NOT in Q2] AND [Biomarker_1645_Bit2 NOT in Q1] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: Inverse_TM_SVM ---
+--- TOP 5 GEOMETRIC RULES FOR INFECTION (Class 1) ---
+Rank #1 [SVM Weight: +0.069]:
+  [Biomarker_335_Bit2 in Q1] AND [Biomarker_837_Bit2 in Q1] AND [Biomarker_1064_Bit1 in Q1] AND [Biomarker_1231_Bit2 in Q1] AND [Biomarker_1448_Bit2 in Q1] AND [Biomarker_1696_Bit2 in Q1] AND [Biomarker_1862_Bit2 in Q1] AND [Biomarker_1905_Bit1 in Q1] AND [Biomarker_1905_Bit1 in Q2] AND [Biomarker_359_Bit1 NOT in Q2] AND [Biomarker_412_Bit2 NOT in Q2] AND [Biomarker_553_Bit2 NOT in Q2] AND [Biomarker_1121_Bit1 NOT in Q2] AND [Biomarker_1154_Bit1 NOT in Q2] AND [Biomarker_1194_Bit2 NOT in Q2] AND [Biomarker_1380_Bit2 NOT in Q2] AND [Biomarker_1607_Bit2 NOT in Q2] AND [Biomarker_1761_Bit2 NOT in Q2]
+
+Rank #2 [SVM Weight: +0.068]:
+  [Biomarker_171_Bit1 in Q1] AND [Biomarker_285_Bit1 in Q1] AND [Biomarker_439_Bit2 in Q1] AND [Biomarker_722_Bit1 in Q1] AND [Biomarker_851_Bit1 in Q1] AND [Biomarker_902_Bit1 in Q1] AND [Biomarker_1073_Bit1 in Q1] AND [Biomarker_1091_Bit2 in Q1] AND [Biomarker_1250_Bit1 in Q1] AND [Biomarker_1280_Bit2 in Q1] AND [Biomarker_1467_Bit2 in Q1] AND [Biomarker_1537_Bit2 in Q1] AND [Biomarker_1553_Bit1 in Q1] AND [Biomarker_1557_Bit1 in Q1] AND [Biomarker_1885_Bit2 in Q1] AND [Biomarker_205_Bit1 NOT in Q2] AND [Biomarker_394_Bit1 NOT in Q2] AND [Biomarker_570_Bit2 NOT in Q2] AND [Biomarker_679_Bit2 NOT in Q2] AND [Biomarker_988_Bit2 NOT in Q2] AND [Biomarker_1241_Bit1 NOT in Q2] AND [Biomarker_1326_Bit1 NOT in Q2] AND [Biomarker_1526_Bit2 NOT in Q2] AND [Biomarker_1622_Bit1 NOT in Q2] AND [Biomarker_1863_Bit2 NOT in Q2]
+
+Rank #3 [SVM Weight: +0.068]:
+  [Biomarker_407_Bit2 in Q1] AND [Biomarker_1029_Bit1 in Q1] AND [Biomarker_1247_Bit2 in Q1] AND [Biomarker_57_Bit2 NOT in Q2] AND [Biomarker_305_Bit1 NOT in Q2] AND [Biomarker_1316_Bit2 NOT in Q2]
+
+Rank #4 [SVM Weight: +0.067]:
+  [Biomarker_664_Bit1 in Q1] AND [Biomarker_938_Bit2 in Q1] AND [Biomarker_1188_Bit2 in Q1] AND [Biomarker_1890_Bit1 in Q1] AND [Biomarker_218_Bit1 NOT in Q2] AND [Biomarker_670_Bit1 NOT in Q2] AND [Biomarker_745_Bit2 NOT in Q2] AND [Biomarker_1346_Bit2 NOT in Q2] AND [Biomarker_1773_Bit2 NOT in Q2]
+
+Rank #5 [SVM Weight: +0.066]:
+  [Biomarker_332_Bit2 in Q1] AND [Biomarker_574_Bit1 in Q1] AND [Biomarker_943_Bit2 in Q1] AND [Biomarker_1030_Bit2 in Q1] AND [Biomarker_1774_Bit1 in Q1] AND [Biomarker_71_Bit2 NOT in Q2] AND [Biomarker_567_Bit2 NOT in Q2] AND [Biomarker_1831_Bit2 NOT in Q2]
+
+--- TOP 5 GEOMETRIC RULES FOR HOMEOSTASIS (Class 0) ---
+Rank #1 [SVM Weight: -0.093]:
+  [Biomarker_843_Bit1 in Q1] AND [Biomarker_1343_Bit2 in Q1] AND [Biomarker_1633_Bit2 in Q1] AND [Biomarker_1641_Bit2 in Q1] AND [Biomarker_1777_Bit1 in Q1] AND [Biomarker_51_Bit1 NOT in Q2] AND [Biomarker_94_Bit1 NOT in Q1] AND [Biomarker_425_Bit2 NOT in Q2] AND [Biomarker_451_Bit1 NOT in Q2] AND [Biomarker_470_Bit2 NOT in Q2] AND [Biomarker_826_Bit2 NOT in Q1] AND [Biomarker_885_Bit2 NOT in Q1] AND [Biomarker_1354_Bit2 NOT in Q2] AND [Biomarker_1364_Bit2 NOT in Q2]
+
+Rank #2 [SVM Weight: -0.084]:
+  [Biomarker_1172_Bit2 in Q1] AND [Biomarker_1138_Bit2 NOT in Q2] AND [Biomarker_1501_Bit1 NOT in Q1] AND [Biomarker_1554_Bit2 NOT in Q1]
+
+Rank #3 [SVM Weight: -0.083]:
+  [Biomarker_445_Bit1 in Q2] AND [Biomarker_707_Bit2 in Q1] AND [Biomarker_812_Bit2 in Q1] AND [Biomarker_1035_Bit1 in Q1] AND [Biomarker_25_Bit1 NOT in Q2] AND [Biomarker_178_Bit2 NOT in Q2] AND [Biomarker_422_Bit1 NOT in Q2] AND [Biomarker_678_Bit1 NOT in Q2] AND [Biomarker_721_Bit2 NOT in Q2] AND [Biomarker_1683_Bit2 NOT in Q2] AND [Biomarker_1890_Bit2 NOT in Q2]
+
+Rank #4 [SVM Weight: -0.080]:
+  [Biomarker_455_Bit1 in Q2] AND [Biomarker_1603_Bit2 in Q1] AND [Biomarker_1617_Bit1 in Q2] AND [Biomarker_1627_Bit1 in Q1] AND [Biomarker_546_Bit1 NOT in Q2]
+
+Rank #5 [SVM Weight: -0.075]:
+  [Biomarker_171_Bit1 in Q1] AND [Biomarker_353_Bit2 in Q1] AND [Biomarker_359_Bit2 in Q1] AND [Biomarker_774_Bit2 in Q1] AND [Biomarker_830_Bit2 in Q1] AND [Biomarker_920_Bit1 in Q1] AND [Biomarker_1387_Bit1 in Q1] AND [Biomarker_1414_Bit2 in Q1] AND [Biomarker_1562_Bit2 in Q1] AND [Biomarker_1662_Bit1 in Q1] AND [Biomarker_1748_Bit1 in Q1] AND [Biomarker_1754_Bit2 in Q2] AND [Biomarker_1801_Bit2 in Q1] AND [Biomarker_1949_Bit2 in Q1] AND [Biomarker_99_Bit1 NOT in Q2] AND [Biomarker_170_Bit1 NOT in Q2] AND [Biomarker_300_Bit2 NOT in Q2] AND [Biomarker_425_Bit2 NOT in Q2] AND [Biomarker_504_Bit2 NOT in Q2] AND [Biomarker_507_Bit1 NOT in Q2] AND [Biomarker_581_Bit1 NOT in Q2] AND [Biomarker_711_Bit2 NOT in Q2] AND [Biomarker_868_Bit2 NOT in Q1] AND [Biomarker_1483_Bit1 NOT in Q1] AND [Biomarker_1522_Bit1 NOT in Q1] AND [Biomarker_1626_Bit1 NOT in Q2] AND [Biomarker_1755_Bit2 NOT in Q2] AND [Biomarker_1769_Bit1 NOT in Q2] AND [Biomarker_1798_Bit2 NOT in Q2] AND [Biomarker_1809_Bit1 NOT in Q2] AND [Biomarker_1948_Bit1 NOT in Q2]
+
+
+--------------------------------------------------------------------------------
+

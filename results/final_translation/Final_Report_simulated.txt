@@ -1,0 +1,122 @@
+================================================================================
+ CLINICAL KNOWLEDGE BASE - DATASET: SIMULATED
+================================================================================
+
+--- ARCHITECTURE: Pure_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 42.2% | Precision: 95.9%)
+  IF ( [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 34.6% | Precision: 85.8%)
+  IF ( [Biomarker_17_Bit2 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_6_Bit1 NOT in Q2] )
+
+  Rank #3 (Coverage: 34.4% | Precision: 84.8%)
+  IF ( [Biomarker_14_Bit1 in Q1] AND [Biomarker_17_Bit2 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 33.9% | Precision: 85.9%)
+  IF ( [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_4_Bit2 NOT in Q2] AND [Biomarker_16_Bit2 NOT in Q2] )
+
+  Rank #5 (Coverage: 33.8% | Precision: 84.8%)
+  IF ( [Biomarker_4_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_8_Bit2 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 62.3% | Precision: 51.9%)
+  IF ( [IL-6_Bit1 in Q2] )
+
+  Rank #2 (Coverage: 40.1% | Precision: 73.2%)
+  IF ( [IL-6_Bit1 in Q2] AND [IL-10_Bit1 in Q1] AND [Biomarker_15_Bit2 in Q1] AND [IL-6_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 39.0% | Precision: 72.5%)
+  IF ( [IL-6_Bit1 in Q1] AND [IL-6_Bit2 NOT in Q1] AND [Biomarker_14_Bit1 NOT in Q2] )
+
+  Rank #4 (Coverage: 38.4% | Precision: 94.7%)
+  IF ( [IL-6_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+  Rank #5 (Coverage: 37.8% | Precision: 94.6%)
+  IF ( [IL-10_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: sPLSDA_TM ---
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 42.2% | Precision: 95.9%)
+  IF ( [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q1] AND [IL-10_Bit1 NOT in Q2] )
+
+  Rank #2 (Coverage: 36.9% | Precision: 91.0%)
+  IF ( [IL-6_Bit2 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_8_Bit2 NOT in Q2] )
+
+  Rank #3 (Coverage: 35.5% | Precision: 86.7%)
+  IF ( [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_7_Bit1 NOT in Q2] AND [Biomarker_7_Bit2 NOT in Q2] )
+
+  Rank #4 (Coverage: 35.1% | Precision: 85.4%)
+  IF ( [Biomarker_12_Bit1 in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_11_Bit1 NOT in Q2] )
+
+  Rank #5 (Coverage: 34.8% | Precision: 83.3%)
+  IF ( [IL-6_Bit2 in Q1] AND [Biomarker_7_Bit2 in Q1] AND [Biomarker_12_Bit1 NOT in Q2] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 62.3% | Precision: 51.9%)
+  IF ( [IL-6_Bit1 in Q2] )
+
+  Rank #2 (Coverage: 61.3% | Precision: 51.1%)
+  IF ( [IL-10_Bit1 in Q2] )
+
+  Rank #3 (Coverage: 59.4% | Precision: 49.5%)
+  IF ( [IL-6_Bit2 NOT in Q1] )
+
+  Rank #4 (Coverage: 38.4% | Precision: 94.7%)
+  IF ( [IL-6_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+  Rank #5 (Coverage: 37.8% | Precision: 94.6%)
+  IF ( [IL-10_Bit1 in Q2] AND [IL-6_Bit2 NOT in Q1] )
+
+
+
+--------------------------------------------------------------------------------
+
+--- ARCHITECTURE: Inverse_TM_SVM ---
+--- TOP 5 GEOMETRIC RULES FOR INFECTION (Class 1) ---
+Rank #1 [SVM Weight: +0.600]:
+  [IL-6_Bit1 NOT in Q1] AND [IL-6_Bit1 NOT in Q2] AND [IL-10_Bit1 NOT in Q2]
+
+Rank #2 [SVM Weight: +0.568]:
+  [Biomarker_5_Bit2 in Q2] AND [Biomarker_11_Bit2 in Q2] AND [TNF-a_Bit2 NOT in Q1]
+
+Rank #3 [SVM Weight: +0.494]:
+  [IL-6_Bit2 in Q1] AND [IL-6_Bit2 in Q2]
+
+Rank #4 [SVM Weight: +0.359]:
+  [IL-6_Bit1 NOT in Q2] AND [IL-6_Bit2 NOT in Q2] AND [IL-10_Bit1 NOT in Q2] AND [Biomarker_4_Bit1 NOT in Q2] AND [Biomarker_4_Bit2 NOT in Q2]
+
+Rank #5 [SVM Weight: +0.351]:
+  [Biomarker_9_Bit1 in Q2] AND [Biomarker_5_Bit2 NOT in Q1] AND [Biomarker_17_Bit2 NOT in Q1]
+
+--- TOP 5 GEOMETRIC RULES FOR HOMEOSTASIS (Class 0) ---
+Rank #1 [SVM Weight: -0.639]:
+  [IL-6_Bit1 in Q1] AND [IL-10_Bit1 in Q1] AND [IL-6_Bit2 NOT in Q1] AND [Biomarker_14_Bit1 NOT in Q2] AND [Biomarker_17_Bit2 NOT in Q2]
+
+Rank #2 [SVM Weight: -0.543]:
+  [IL-6_Bit1 in Q1] AND [IL-10_Bit1 in Q1] AND [Biomarker_8_Bit2 in Q1] AND [IL-6_Bit2 NOT in Q1] AND [Biomarker_17_Bit1 NOT in Q2]
+
+Rank #3 [SVM Weight: -0.539]:
+  [Biomarker_7_Bit1 NOT in Q1] AND [Biomarker_14_Bit2 NOT in Q1] AND [Biomarker_17_Bit2 NOT in Q1]
+
+Rank #4 [SVM Weight: -0.536]:
+  [IL-10_Bit1 in Q1] AND [Biomarker_4_Bit1 in Q1] AND [IL-6_Bit2 NOT in Q2] AND [Biomarker_14_Bit2 NOT in Q2] AND [Biomarker_19_Bit1 NOT in Q2]
+
+Rank #5 [SVM Weight: -0.507]:
+  [IL-6_Bit1 in Q1] AND [IL-10_Bit1 in Q1] AND [Biomarker_18_Bit2 in Q1] AND [IL-6_Bit2 NOT in Q1] AND [Biomarker_15_Bit2 NOT in Q2]
+
+
+--------------------------------------------------------------------------------
+

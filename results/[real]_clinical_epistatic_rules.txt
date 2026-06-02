@@ -1,0 +1,46 @@
+=========================================================
+ TFG CLINICAL REPORT - HYBRID sPLS-DA + TSETLIN MACHINE
+ Dataset: REAL | Patients: 82
+=========================================================
+
+Surviving Biomarkers (Algebraic Filter): IFN-g, IL-1b, IL-4, IL-6, IL-10, IL-12 p70, IL-13, TNF-a, GM-CSF, IL-1a, IL-5, IL-7, IL-15, IL-16, IL-17A, VEGF, Eotaxin, MIP-1b, Eotaxin-3, TARC, IP-10, MIP-1a, MCP-1, MDC, MCP-4, IL-6R, IL-18, IL-8, MMP substr, Zym, MMP8 Total, HNE, Total Cell Count in Bag, % of Live CD3+ cells in Bag, % of Live CD14+  cells in Bag, % of Live CD15+  cells in Bag
+
+================ CLINICAL PROFILE RANKING ================
+
+--- DIAGNOSTIC RULES FOR HEALTHY (Homeostasis) ---
+  Rank #1 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [IL-18 in Q1] AND [IFN-g NOT in Q1] AND [IL-1b NOT in Q4] AND [IL-4 NOT in Q2] AND [IL-6 NOT in Q3] AND [IL-10 NOT in Q1] AND [IL-12 p70 NOT in Q1] AND [IL-12 p70 NOT in Q4] AND [TNF-a NOT in Q4] AND [IL-1a NOT in Q4] AND [IL-7 NOT in Q1] AND [IL-15 NOT in Q3] AND [IL-15 NOT in Q4] AND [IL-16 NOT in Q1] AND [IL-17A NOT in Q1] AND [VEGF NOT in Q1] AND [VEGF NOT in Q3] AND [MIP-1b NOT in Q3] AND [MCP-4 NOT in Q3] AND [IL-6R NOT in Q2] )
+
+  Rank #2 (Coverage: 36.8% | Precision: 100.0%)
+  IF ( [IFN-g NOT in Q2] AND [IFN-g NOT in Q4] AND [IL-1b NOT in Q1] AND [IL-1b NOT in Q2] AND [IL-4 NOT in Q1] AND [IL-6 NOT in Q2] AND [IL-6 NOT in Q3] AND [IL-10 NOT in Q1] AND [IL-10 NOT in Q3] AND [IL-10 NOT in Q4] AND [IL-12 p70 NOT in Q2] AND [IL-13 NOT in Q2] AND [TNF-a NOT in Q1] AND [IL-1a NOT in Q4] AND [IL-5 NOT in Q3] AND [IL-15 NOT in Q4] AND [IL-16 NOT in Q1] AND [IL-17A NOT in Q2] AND [VEGF NOT in Q4] AND [Eotaxin NOT in Q1] AND [Eotaxin NOT in Q2] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q2] AND [MIP-1b NOT in Q3] )
+
+  Rank #3 (Coverage: 31.6% | Precision: 100.0%)
+  IF ( [IL-6R in Q3] AND [IL-6R in Q4] AND [IFN-g NOT in Q2] AND [IFN-g NOT in Q3] AND [IFN-g NOT in Q4] AND [IL-1b NOT in Q1] AND [IL-1b NOT in Q2] AND [IL-1b NOT in Q3] AND [IL-1b NOT in Q4] AND [IL-4 NOT in Q1] AND [IL-4 NOT in Q2] AND [IL-4 NOT in Q3] AND [IL-6 NOT in Q1] AND [IL-6 NOT in Q2] AND [IL-6 NOT in Q3] AND [IL-10 NOT in Q1] AND [IL-10 NOT in Q2] AND [IL-10 NOT in Q3] AND [IL-10 NOT in Q4] AND [IL-12 p70 NOT in Q3] AND [IL-12 p70 NOT in Q4] AND [IL-13 NOT in Q2] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q3] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q4] AND [IL-1a NOT in Q3] AND [IL-5 NOT in Q1] AND [IL-5 NOT in Q2] AND [IL-5 NOT in Q3] AND [IL-5 NOT in Q4] AND [IL-7 NOT in Q1] AND [IL-15 NOT in Q3] AND [IL-16 NOT in Q2] AND [IL-16 NOT in Q4] AND [IL-17A NOT in Q1] AND [IL-17A NOT in Q2] AND [IL-17A NOT in Q3] AND [VEGF NOT in Q2] AND [VEGF NOT in Q3] AND [Eotaxin NOT in Q1] AND [Eotaxin NOT in Q2] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] AND [MIP-1b NOT in Q3] AND [Eotaxin-3 NOT in Q1] AND [Eotaxin-3 NOT in Q3] AND [TARC NOT in Q2] AND [IP-10 NOT in Q1] AND [IP-10 NOT in Q4] AND [MCP-1 NOT in Q2] AND [MDC NOT in Q1] AND [MCP-4 NOT in Q2] AND [MCP-4 NOT in Q3] AND [IL-6R NOT in Q2] )
+
+  Rank #4 (Coverage: 31.6% | Precision: 100.0%)
+  IF ( [IL-6R in Q3] AND [IL-6R in Q4] AND [IL-18 in Q1] AND [IFN-g NOT in Q1] AND [IFN-g NOT in Q2] AND [IFN-g NOT in Q3] AND [IFN-g NOT in Q4] AND [IL-1b NOT in Q1] AND [IL-1b NOT in Q2] AND [IL-1b NOT in Q4] AND [IL-4 NOT in Q1] AND [IL-4 NOT in Q2] AND [IL-6 NOT in Q2] AND [IL-6 NOT in Q3] AND [IL-10 NOT in Q3] AND [IL-10 NOT in Q4] AND [IL-12 p70 NOT in Q1] AND [IL-12 p70 NOT in Q4] AND [IL-13 NOT in Q1] AND [IL-13 NOT in Q2] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q1] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q3] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q3] AND [IL-5 NOT in Q1] AND [IL-5 NOT in Q2] AND [IL-5 NOT in Q4] AND [IL-7 NOT in Q1] AND [IL-16 NOT in Q1] AND [IL-16 NOT in Q3] AND [IL-16 NOT in Q4] AND [IL-17A NOT in Q2] AND [VEGF NOT in Q2] AND [Eotaxin NOT in Q1] AND [MIP-1b NOT in Q1] AND [MIP-1b NOT in Q3] AND [MIP-1b NOT in Q4] AND [Eotaxin-3 NOT in Q2] AND [Eotaxin-3 NOT in Q3] AND [TARC NOT in Q2] AND [IP-10 NOT in Q1] AND [IP-10 NOT in Q2] AND [IP-10 NOT in Q3] AND [IP-10 NOT in Q4] AND [MDC NOT in Q1] AND [MCP-4 NOT in Q2] AND [MCP-4 NOT in Q3] AND [IL-6R NOT in Q2] )
+
+  Rank #5 (Coverage: 31.6% | Precision: 100.0%)
+  IF ( [IL-6R in Q4] AND [IL-18 in Q1] AND [IFN-g NOT in Q1] AND [IFN-g NOT in Q2] AND [IFN-g NOT in Q4] AND [IL-6 NOT in Q1] AND [IL-13 NOT in Q1] AND [IL-13 NOT in Q2] AND [GM-CSF NOT in Q4] AND [IL-1a NOT in Q2] AND [IL-5 NOT in Q1] AND [IL-5 NOT in Q3] AND [IL-16 NOT in Q1] AND [IL-16 NOT in Q4] AND [IL-17A NOT in Q2] AND [IL-17A NOT in Q3] AND [MIP-1b NOT in Q2] AND [Eotaxin-3 NOT in Q2] AND [IP-10 NOT in Q4] )
+
+
+
+--- DIAGNOSTIC RULES FOR INFECTED (Peritonitis) ---
+  Rank #1 (Coverage: 47.6% | Precision: 100.0%)
+  IF ( [IFN-g in Q1] AND [IL-1b in Q3] AND [IL-6 in Q4] AND [IL-1a in Q4] AND [IL-17A in Q2] AND [VEGF in Q1] AND [Eotaxin in Q3] AND [MIP-1b in Q2] AND [TARC in Q3] AND [MCP-4 in Q1] AND [MCP-4 in Q2] AND [IL-4 NOT in Q2] AND [IL-4 NOT in Q3] AND [IL-4 NOT in Q4] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q1] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q1] AND [GM-CSF NOT in Q3] AND [GM-CSF NOT in Q4] AND [IL-15 NOT in Q3] AND [IL-16 NOT in Q2] AND [VEGF NOT in Q2] AND [VEGF NOT in Q3] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] AND [Eotaxin-3 NOT in Q3] )
+
+  Rank #2 (Coverage: 46.0% | Precision: 100.0%)
+  IF ( [IFN-g in Q1] AND [IFN-g in Q4] AND [IL-1b in Q3] AND [IL-6 in Q1] AND [IL-6 in Q4] AND [IL-10 in Q3] AND [IL-1a in Q4] AND [Eotaxin in Q3] AND [MIP-1a in Q1] AND [MIP-1a in Q2] AND [MCP-1 in Q3] AND [MDC in Q2] AND [MCP-4 in Q1] AND [IL-18 in Q2] AND [IL-4 NOT in Q3] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q1] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q3] AND [GM-CSF NOT in Q4] AND [IL-15 NOT in Q3] AND [IL-16 NOT in Q2] AND [VEGF NOT in Q3] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] AND [Eotaxin-3 NOT in Q3] AND [IL-18 NOT in Q1] )
+
+  Rank #3 (Coverage: 42.9% | Precision: 100.0%)
+  IF ( [IL-1b in Q3] AND [IL-6 in Q1] AND [IL-6 in Q4] AND [IL-10 in Q3] AND [IL-12 p70 in Q2] AND [IL-16 in Q3] AND [VEGF in Q4] AND [Eotaxin in Q3] AND [TARC in Q3] AND [MIP-1a in Q1] AND [MCP-1 in Q3] AND [MDC in Q3] AND [IL-4 NOT in Q2] AND [IL-4 NOT in Q3] AND [IL-4 NOT in Q4] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q1] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q1] AND [GM-CSF NOT in Q3] AND [GM-CSF NOT in Q4] AND [IL-16 NOT in Q2] AND [VEGF NOT in Q2] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] AND [Eotaxin-3 NOT in Q3] AND [IL-18 NOT in Q1] )
+
+  Rank #4 (Coverage: 42.9% | Precision: 100.0%)
+  IF ( [IFN-g in Q1] AND [IL-1a in Q4] AND [IL-5 in Q3] AND [IL-17A in Q2] AND [VEGF in Q1] AND [Eotaxin in Q3] AND [MIP-1b in Q2] AND [TARC in Q3] AND [MIP-1a in Q1] AND [MCP-1 in Q3] AND [MDC in Q2] AND [MCP-4 in Q1] AND [IL-18 in Q2] AND [IL-4 NOT in Q2] AND [IL-4 NOT in Q3] AND [IL-4 NOT in Q4] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q1] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q1] AND [GM-CSF NOT in Q3] AND [GM-CSF NOT in Q4] AND [IL-15 NOT in Q3] AND [IL-16 NOT in Q2] AND [VEGF NOT in Q2] AND [VEGF NOT in Q3] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] AND [IL-18 NOT in Q1] )
+
+  Rank #5 (Coverage: 42.9% | Precision: 96.4%)
+  IF ( [IFN-g in Q4] AND [IL-6 in Q1] AND [IL-6 in Q4] AND [IL-10 in Q3] AND [IL-1a in Q4] AND [IL-7 in Q2] AND [IL-15 in Q1] AND [IL-15 in Q2] AND [IL-15 in Q4] AND [IL-17A in Q2] AND [VEGF in Q1] AND [VEGF in Q4] AND [Eotaxin in Q3] AND [MIP-1b in Q2] AND [TARC in Q3] AND [IL-4 NOT in Q3] AND [IL-4 NOT in Q4] AND [IL-13 NOT in Q3] AND [IL-13 NOT in Q4] AND [TNF-a NOT in Q2] AND [TNF-a NOT in Q4] AND [GM-CSF NOT in Q1] AND [GM-CSF NOT in Q3] AND [GM-CSF NOT in Q4] AND [IL-15 NOT in Q3] AND [IL-16 NOT in Q2] AND [VEGF NOT in Q2] AND [VEGF NOT in Q3] AND [Eotaxin NOT in Q4] AND [MIP-1b NOT in Q1] )
+
+
+
+Legend: Q1 (Very Low), Q2 (Medium-Low), Q3 (Medium-High), Q4 (Very High)
