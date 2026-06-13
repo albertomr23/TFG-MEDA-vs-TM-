@@ -1,4 +1,14 @@
-# src/models/tm_wrapper.py
+"""
+===============================================================================
+TM WRAPPER
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
 from sklearn.base import BaseEstimator, ClassifierMixin
 from pyTsetlinMachine.tm import MultiClassTsetlinMachine
 import numpy as np

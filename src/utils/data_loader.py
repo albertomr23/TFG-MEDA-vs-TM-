@@ -1,4 +1,15 @@
 """
+===============================================================================
+DATA LOADER
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
+"""
 Centralized Data Loading Module.
 This is the single source of truth for dataset selection and loading.
 Used across: exp_05, exp_06, exp_07, exp_08, exp_09, exp_10, exp_meda_04_v2.

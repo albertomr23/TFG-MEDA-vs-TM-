@@ -1,4 +1,13 @@
-# src/evaluation/benchmark_engine.py
+"""
+===============================================================================
+BENCHMARK ENGINE
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import time
@@ -55,11 +64,11 @@ class BenchmarkEngine:
                 estimator=pipeline,
                 param_grid=param_grid,
                 cv=self.inner_cv,
-                scoring='matthews_corrcoef', # Rigorously optimizing for MCC 
+                scoring='matthews_corrcoef', # Optimizing for MCC 
                 n_jobs=None
             )
             
-            # Fit the grid search (ignoring verbose library warnings)
+            # Fit the grid search (ignoring library warnings)
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 grid_search.fit(X_train, y_train)
@@ -147,13 +156,13 @@ class BenchmarkEngine:
         features_per_fold = self.results_[model_name]['features_selected_per_fold']
         num_folds = len(features_per_fold)
         
-        # If we didn't do Cross-Validation (only 1 fold), stability is trivially 1.0
+        # If we didn't do CV (only 1 fold), stability -> 1.0
         if num_folds < 2:
             return 1.0 
             
         pairwise_similarities = []
         
-        # Compare every fold's subset against every other fold's subset (Combinatorics)
+        # Compare every fold's subset against every other fold's subset 
         for i in range(num_folds):
             for j in range(i + 1, num_folds):
                 set_a = features_per_fold[i]
@@ -163,12 +172,12 @@ class BenchmarkEngine:
                 if len(set_a) == 0 and len(set_b) == 0:
                     pairwise_similarities.append(1.0)
                     continue
-                # Edge Case: Dropped everything in only one fold (Total instability)
+                # Edge Case: Dropped everything in only one fold
                 elif len(set_a) == 0 or len(set_b) == 0:
                     pairwise_similarities.append(0.0)
                     continue
                     
-                # Core Math: Intersection over Union (Jaccard)
+                # Intersection over Union (Jaccard)
                 intersection = len(set_a.intersection(set_b))
                 union = len(set_a.union(set_b))
                 

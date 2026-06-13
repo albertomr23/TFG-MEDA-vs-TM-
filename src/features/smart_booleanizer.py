@@ -1,3 +1,15 @@
+"""
+===============================================================================
+SMART BOOLEANIZER
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
+
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -90,7 +102,7 @@ class SmartBooleanizer(BaseEstimator, TransformerMixin):
         
         #Matrix to hold the discretized bin indices for each feature
         X_discrete = np.zeros((n_samples, n_features), dtype=int)
-        # 2. Discretize each feature using the thresholds learned during 'fit'
+        # 2. Discretize each feature using the thresholds learned during fit
         
         for col_idx in range(n_features):
             feature_data = X_array[:,col_idx]
@@ -104,7 +116,7 @@ class SmartBooleanizer(BaseEstimator, TransformerMixin):
         if self.encoding == 'thermometer':
             return self._apply_thermometer_encoding(X_discrete)
         elif self.encoding == 'one_hot':
-            # Placeholder for future one-hot encoding implementation
+            # Placeholder for future one-hot encoding implementation(FUTURE WORK)
             pass
         else:
             return X_discrete
@@ -210,8 +222,7 @@ class SmartBooleanizer(BaseEstimator, TransformerMixin):
         
         for col_idx in range(n_features):
             bin_indices = X_discrete[:, col_idx]
-            
-            # THE BROADCASTING :
+
             # If a patient is in Bin 2: (2 > [0, 1, 2]) -> [True, True, False] -> [1, 1, 0]
             # If a patient is in Bin 3: (3 > [0, 1, 2]) -> [True, True, True] -> [1, 1, 1]
             thermo_bits = (bin_indices[:, None] > bit_reference).astype(int)

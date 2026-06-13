@@ -1,4 +1,13 @@
-# src/exp_meda_04_v2.py
+"""
+===============================================================================
+EXPERIMENT 03: PURE MEDA EVALUATION (LR vs SVM)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import pandas as pd
@@ -32,7 +41,7 @@ warnings.filterwarnings('ignore')
 
 def run_experiment(X, y, feature_names, dataset_type, results_dir):
     print("\n=========================================================")
-    print(" 🔬 EXPERIMENT 04: PURE MEDA EVALUATION (LR vs SVM) ")
+    print("  EXPERIMENT 03: PURE MEDA EVALUATION (LR vs SVM) ")
     print("=========================================================\n")
     
     meda_methods = ['pca', 'spca', 'splsda', 'asca', 'vasca'] 

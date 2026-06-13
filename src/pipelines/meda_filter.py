@@ -1,4 +1,16 @@
 """
+===============================================================================
+MEDA FILTER PIPELINE
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
+
+"""
 Centralized MEDA Filter Transformer.
 This is the single source of truth for feature filtering via MEDA methods.
 Used across: exp_05, exp_06, exp_07, exp_08, exp_10, exp_meda_04_v2.
@@ -55,7 +67,7 @@ class MEDAFilter(BaseEstimator, TransformerMixin):
             self.selector_.fit(X, y)
             self.selected_indices_ = self.selector_.selected_features_
         except Exception as e:
-            # Graceful fallback for methods that fail on certain data (e.g., vASCA on boolean)
+            # Graceful fallback for methods that fail on certain data 
             warnings.warn(
                 f"⚠️  {self.method.upper()} failed to fit (likely SVD singular): "
                 f"{type(e).__name__}: {str(e)}. "

@@ -1,4 +1,13 @@
-# src/exp_09_inv_hybrid_latent.py
+"""
+===============================================================================
+EXPERIMENT 08: INVERSE HYBRID ARCHITECTURE (TM -> SVM)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import os
 import time
@@ -53,7 +62,7 @@ class TMClauseExtractor(BaseEstimator, TransformerMixin):
 
 def run_experiment(X, y, dataset_type, results_dir):
     print("\n" + "="*80)
-    print(" 🧠 EXP 09: INVERSE HYBRID EXPLORATION (Logic -> Geometry vs Latent) ")
+    print("  EXPERIMENT 08: INVERSE HYBRID ARCHITECTURE (TM -> SVM) ")
     print("="*80)
     
     pipelines = {

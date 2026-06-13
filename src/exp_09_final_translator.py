@@ -1,4 +1,13 @@
-# src/exp_10_final_translation.py
+"""
+===============================================================================
+EXPERIMENT 09: FINAL CLINICAL TRANSLATION (TM -> sPLSDA / vASCA / SVM)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import os
 import numpy as np
@@ -14,8 +23,8 @@ from models.r_wrapper import RWrapper
 from models.tm_wrapper import TMWrapper
 from features.smart_booleanizer import SmartBooleanizer
 from interpretability.clinical_translator import ClinicalTranslator
-from utils.data_loader import select_and_load_dataset  # ✅ CENTRALIZED
-from pipelines.meda_filter import MEDAFilter  # ✅ CENTRALIZED
+from utils.data_loader import select_and_load_dataset  
+from pipelines.meda_filter import MEDAFilter  
 
 warnings.filterwarnings('ignore')
 
@@ -76,7 +85,7 @@ def main():
     os.makedirs(results_dir, exist_ok=True)
 
     print("\n" + "="*70)
-    print(f" 🏥 EXP 10: FINAL CLINICAL TRANSLATION ({dataset_type.upper()}) ")
+    print(f" EXPERIMENT 09: FINAL CLINICAL TRANSLATION ({dataset_type.upper()}) ")
     print("="*70)
 
     # 2. Define the 3 mathematical architectures requested in the memory
@@ -131,7 +140,7 @@ def main():
                     class_idx = idx // extractor.tm.number_of_clauses
                     clause_idx = idx % extractor.tm.number_of_clauses
                     
-                    # FIXED: Direct call to your internal decoding method
+                    # FIXED: Direct call to THE internal decoding method
                     rule_text = translator._decode_clause(class_idx, clause_idx)
                     report_text += f"Rank #{rank+1} [SVM Weight: +{svm_weights[idx]:.3f}]:\n  {rule_text}\n\n"
                     
@@ -144,21 +153,21 @@ def main():
                     report_text += f"Rank #{rank+1} [SVM Weight: {svm_weights[idx]:.3f}]:\n  {rule_text}\n\n"
 
             elif model_name == 'sPLSDA_TM':
-                # 1. Recuperamos los índices que han sobrevivido al filtro algebraico
+                # 1. Recuperate the indices that survived the algebraic filter
                 filter_step = pipeline.named_steps['splsda']
                 surviving_indices = filter_step.selected_indices_
-                # 2. Rescatamos sus nombres reales de la lista original
+                # 2. Use the surviving indices to get the corresponding feature names
                 surviving_biomarkers = [feature_names[i] for i in surviving_indices]
                 
                 tm_model = pipeline.named_steps['tm']
                 bool_model = pipeline.named_steps['booleanizer']
                 n_bins = bool_model.n_bins
                 
-                # Transformamos usando las variables filtradas
+                # Transform the original data X to boolean using the surviving biomarkers
                 X_filtered = filter_step.transform(X)
                 X_bool = bool_model.transform(X_filtered)
                 
-                # 3. Generamos los nombres booleanos usando las variables supervivientes
+                # 3. Generate proper boolean feature names (thermometer encoding uses n_bins-1 bits per feature)
                 bool_feature_names = generate_boolean_feature_names(surviving_biomarkers, n_bins)
                 
                 max_bits = n_bins - 1

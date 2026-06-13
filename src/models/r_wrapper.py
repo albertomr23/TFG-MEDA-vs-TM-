@@ -1,3 +1,13 @@
+"""
+===============================================================================
+R WRAPPER
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import warnings
@@ -151,8 +161,8 @@ class RWrapper(BaseEstimator, ClassifierMixin):
             else:
                 y_matrix = np.ascontiguousarray(y, dtype=np.float64)
             
-            # 3. Fast Bridge: numpy2ri is active, so we pass Numpy arrays directly.
-            # We use the dynamic 'permutations' parameter (defaults to 100).
+            # 3. numpy2ri is active, so we pass Numpy arrays directly.
+            # We use the dynamic PERMUTATIONS parameter (defaults to 100).
             glm_output = self._r_parglm(X_matrix, y_matrix, model="full", permutations=permutations)
             parglmoVS = glm_output.rx2(2)
             
@@ -240,11 +250,11 @@ class RWrapper(BaseEstimator, ClassifierMixin):
             
         elif self.method in ['spca', 'pca']:
             # PCA is for feature extraction (Pathway A), not direct classification.
-            # Usually, you extract the scores and pass them to a classifier.
+            # (NORMAL WAY)extract the scores and pass them to a classifier.
             raise ValueError(f"{self.method.upper()} is unsupervised and cannot directly predict classes. Use it as a transformer.")
             
         elif self.method in ['asca', 'vasca']:
-            # Note: ASCA/VASCA are traditionally ANOVA-based variance decomposition tools,
+            # ASCA/VASCA are traditionally ANOVA-based variance decomposition tools,
             # not direct standalone classifiers. To predict a new patient's class, data is usually 
             # projected onto the components and classified via Mahalanobis distance or similar heuristics.
             
@@ -276,7 +286,7 @@ class RWrapper(BaseEstimator, ClassifierMixin):
         
         # For sPLS-DA, PCA, sPCA: Return latent scores (dimensionality reduction)
         if self.method == 'splsda':
-            # Use R's predict function with the original features
+            # (UPDATE TUTOR REVISION)Use R's predict function with the original features
             try:
                 robjects.globalenv['r_model_transform'] = self._r_model
                 robjects.globalenv['X_transform'] = X_arr
@@ -286,15 +296,26 @@ class RWrapper(BaseEstimator, ClassifierMixin):
                 # Project the new data using the model's loadings
                 X_centered <- sweep(X_transform, 2, colMeans(r_model_transform$X))
                 loadings_X <- r_model_transform$loadings$X
-                # Compute scores by multiplying centered data with loadings
+                
+                # Compute scores (T)
                 scores <- X_centered %*% loadings_X
-                as.matrix(scores)
+                
+                # --- Calculate matrix E and add sqrt(SPE) (suggestion)---
+                X_reconstructed <- scores %*% t(loadings_X)
+                E <- X_centered - X_reconstructed
+                sqrt_SPE <- sqrt(rowSums(E^2))
+                
+                # Concatenate [T | sqrt(SPE)]
+                augmented_scores <- cbind(scores, sqrt_SPE)
+                as.matrix(augmented_scores)
                 """
                 latent_scores = np.array(robjects.r(r_code))
-                # Ensure we get the right dimensions
+                
+                # Ensure we get the right dimensions (ahora n_components + 1 por la columna SPE)
                 if latent_scores.ndim == 1:
-                    latent_scores = latent_scores.reshape(-1, self.n_components)
-                return latent_scores[:, :self.n_components]
+                    latent_scores = latent_scores.reshape(-1, self.n_components + 1)
+                
+                return latent_scores[:, :self.n_components + 1]
             except Exception as e:
                 warnings.warn(f"Failed to extract latent scores for sPLS-DA: {e}. Falling back to selected features.")
                 if hasattr(self, 'selected_features_') and self.selected_features_ is not None and len(self.selected_features_) > 0:

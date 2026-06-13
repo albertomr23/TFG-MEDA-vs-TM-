@@ -1,4 +1,13 @@
-# src/exp_05_hybrid.py
+"""
+===============================================================================
+EXPERIMENT 05: HYBRIDIZATION (ALGEBRA + LOGIC)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import pandas as pd
@@ -26,7 +35,7 @@ warnings.filterwarnings('ignore')
 
 def run_experiment(X, y, dataset_type, results_dir):
     print("\n=========================================================")
-    print(" 🧬 EXPERIMENT 05: HYBRIDIZATION (ALGEBRA + LOGIC) ")
+    print("  EXPERIMENT 05: HYBRIDIZATION (ALGEBRA + LOGIC) ")
     print("=========================================================\n")
     
     engine = BenchmarkEngine(outer_cv=5, inner_cv=2, random_state=42)
@@ -152,7 +161,7 @@ def run_experiment(X, y, dataset_type, results_dir):
     fig3.savefig(os.path.join(results_dir, f"[{dataset_type}]_03_SparsityBubble.png"), dpi=300, bbox_inches='tight')
     plt.close(fig3)
 
-    print("✅ 3 NEW Advanced Visualizations (Violin, Slope, Bubble) generated successfully!")
+    print(" 3 NEW Advanced Visualizations (Violin, Slope, Bubble) generated successfully!")
 
 if __name__ == "__main__":
     try:

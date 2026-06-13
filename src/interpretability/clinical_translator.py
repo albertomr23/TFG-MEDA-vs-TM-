@@ -1,4 +1,14 @@
-# src/interpretability/clinical_translator.py
+"""
+===============================================================================
+CLINICAL TRANSLATOR
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
 import numpy as np
 
 class ClinicalTranslator:

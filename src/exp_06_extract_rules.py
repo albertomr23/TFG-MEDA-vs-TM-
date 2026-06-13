@@ -1,3 +1,14 @@
+"""
+===============================================================================
+EXPERIMENT 06: COMPARATIVE RULE EXTRACTION (PURE TM vs HYBRID sPLSDA)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
+
 import numpy as np
 import pandas as pd
 import os
@@ -33,7 +44,7 @@ def generate_boolean_feature_names(original_names, n_bins):
 
 def run_experiment(X, y, feature_names, dataset_type, results_dir):
     print("\n" + "="*70)
-    print(" 🏥 EXP 07: COMPARATIVE RULE EXTRACTION (PURE TM vs HYBRID sPLSDA) ")
+    print("  EXPERIMENT 06: COMPARATIVE RULE EXTRACTION (PURE TM vs HYBRID sPLSDA) ")
     print("="*70)
     
     # ---------------------------------------------------------
@@ -116,7 +127,7 @@ def run_experiment(X, y, feature_names, dataset_type, results_dir):
         f.write(f"Surviving Biomarkers ({len(surviving_biomarkers)}): {', '.join(surviving_biomarkers)}\n\n")
         f.write(report_hybrid)
 
-    print(f"✅ Comparative Clinical Knowledge Base saved locally at: {report_filename}")
+    print(f"[OK] Comparative Clinical Knowledge Base saved locally at: {report_filename}")
 
 if __name__ == "__main__":
     try:

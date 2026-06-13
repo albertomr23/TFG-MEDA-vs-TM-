@@ -1,4 +1,13 @@
-# src/exp_bool_02.py
+"""
+===============================================================================
+EXPERIMENT 02: BOOLEANIZER RESOLUTION IMPACT (ADVANCED)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import os
@@ -16,7 +25,7 @@ warnings.filterwarnings('ignore')
 
 def main():
     print("=========================================================")
-    print(" 📊 EXPERIMENT 02: BOOLEANIZER RESOLUTION IMPACT (ADVANCED) ")
+    print("  EXPERIMENT 02: BOOLEANIZER RESOLUTION IMPACT (ADVANCED) ")
     print("=========================================================\n")
     
     bins_to_test = [2, 3, 4, 5]
@@ -25,11 +34,12 @@ def main():
     stability_history = []
     literal_space_history = []
     
-    # Generamos un dataset de clasificación estándar (40 features continuas)
+    # Generate a classification dataset with 150 samples, 40 features, and 10 informative features
     n_features = 40
     X, y = make_classification(n_samples=150, n_features=n_features, n_informative=10, random_state=42)
     
-    # Motor de evaluación con 3 pliegues externos
+
+    # Benchmar engine with 3 outer folds and 2 inner folds for hyperparameter tuning
     engine = BenchmarkEngine(outer_cv=3, inner_cv=2, random_state=42)
     
     for n_bins in bins_to_test:
@@ -43,18 +53,18 @@ def main():
         tm_grid = {'model__number_of_clauses': [50, 100], 'model__T': [15, 25]}
         model_name = f"TM_{n_bins}_bins"
         
-        # Ejecutamos el benchmark con validación cruzada anidada
+        # Run the benchmark with nested cross-validation
         engine.run_benchmark(X, y, model_name, tm_pipeline, tm_grid)
         
-        # 1. Extraemos la distribución completa de MCC de los pliegues (para el Boxplot)
+        # 1. Extract the complete MCC distribution from the folds (for the Boxplot)
         folds_mcc = [m['mcc'] for m in engine.results_[model_name]['fold_details']]
         mcc_distributions.append(folds_mcc)
         
-        # 2. Calculamos la estabilidad de Jaccard
+        # 2. Calculate the Jaccard stability index based on the selected features across folds
         stability = engine.calculate_stability_index(model_name, total_features=X.shape[1])
         stability_history.append(stability)
         
-        # 3. Cálculo matemático del espacio de literales activo: 2 * features * (bins - 1)
+        # 3. Mathematical calculation of the active literal space: 2 * features * (bins - 1)
         total_literals = 2 * n_features * (n_bins - 1)
         literal_space_history.append(total_literals)
         
@@ -68,10 +78,10 @@ def main():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
     fig.suptitle('State-Space Analysis and Generalization Capacity', fontsize=16, fontweight='bold', y=1.05)
     
-    # PANEL 1: Distribución de la Capacidad Predictiva (Boxplot de MCC)
+    # PANEL 1: Distribution of Predictive Capacity (MCC Boxplot)
     box = ax1.boxplot(mcc_distributions, patch_artist=True, labels=[f"{b} Bins" for b in bins_to_test])
     
-    # Estilizar el boxplot de forma elegante
+    # Highlight the boxes and medians for better visibility
     for patch in box['boxes']:
         patch.set_alpha(0.6)
     for median in box['medians']:
@@ -83,7 +93,7 @@ def main():
     ax1.set_ylim([-0.1, 1.1])
     ax1.grid(True, linestyle=':', alpha=0.5)
     
-    # PANEL 2: Dilema de Complejidad Combinatoria (Doble Eje Y)
+    # PANEL 2: Literal Space Explosion vs. Rule Stability (Doble Eje Y)
     color_jaccard = '#e74c3c'
     ax2.plot([str(b) for b in bins_to_test], stability_history, color=color_jaccard, marker='o', linewidth=3, label='Stability (Jaccard)')    
     ax2.set_title('Literal Space Explosion vs. Rule Stability', fontsize=13)
@@ -92,7 +102,7 @@ def main():
     ax2.tick_params(axis='y', labelcolor=color_jaccard)
     ax2.set_ylim([-0.05, 1.05])
     
-    # Segundo eje Y para el tamaño del espacio binarizado
+    # Second y-axis for the size of the binarized space
     ax3 = ax2.twinx()
     color_literals = '#2c3e50'
     ax3.plot([str(b) for b in bins_to_test], literal_space_history, color=color_literals, marker='s', linewidth=2, linestyle='--')
@@ -103,7 +113,7 @@ def main():
     
     plt.tight_layout()
     
-    # Guardar de forma segura en la carpeta raíz del proyecto
+    # Save the figure in the results directory at the project root
     current_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(current_dir, ".."))
     results_dir = os.path.join(project_root, "results")

@@ -1,4 +1,13 @@
-# src/exp_08_inverse_hybrid.py
+"""
+===============================================================================
+EXPERIMENT 07: INVERSE HYBRID ARCHITECTURE (TM -> sPLSDA / vASCA)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import os
 import time
@@ -58,7 +67,7 @@ class TMClauseExtractor(BaseEstimator, TransformerMixin):
 
 def run_experiment(X, y, dataset_type, results_dir):
     print("\n" + "="*70)
-    print(" 🧠 EXP 07: LATENT COLLAPSE (Testing TM -> sPLSDA / vASCA) ")
+    print("  EXPERIMENT 07: LATENT COLLAPSE (Testing TM -> sPLSDA / vASCA) ")
     print("="*70)
     
     # These are the exact pipelines mentioned in the LaTeX report

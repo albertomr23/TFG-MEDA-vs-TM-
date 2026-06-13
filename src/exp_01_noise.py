@@ -1,4 +1,13 @@
-# src/exp_noise_01.py
+"""
+===============================================================================
+EXPERIMENT 01: NOISE STRESS TEST (ADVANCED METRICS)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import os
@@ -18,16 +27,18 @@ warnings.filterwarnings('ignore')
 
 def main():
     print("=========================================================")
-    print(" 📊 EXPERIMENT 01: NOISE STRESS TEST (ADVANCED METRICS) ")
+    print("  EXPERIMENT 01: NOISE STRESS TEST (ADVANCED METRICS) ")
     print("=========================================================\n")
     
     total_features_list = [20, 40, 80]
     
     # Trackers for MCC
+    mcc_plsda_history = [] #UPDATE
     mcc_splsda_history = []
     mcc_tm_history = []
     
     # Trackers for Algorithmic Stability (Jaccard)
+    stab_plsda_history = []
     stab_splsda_history = []
     stab_tm_history = []
     
@@ -47,9 +58,22 @@ def main():
             random_state=42
         )
         
-        # 2. Evaluate sPLS-DA (Algebra)
+        # 2. Evaluate PLS-DA (Standard - NO Feature Selection)
+        # We use sparsity_penalty=1.0 so it keeps 100% of features.
+        plsda_pipeline = Pipeline([('model', RWrapper(method='splsda'))])
+        plsda_grid = {'model__n_components': [2], 'model__sparsity_penalty': [1.0]}
+        
+        engine.run_benchmark(X, y, "PLS-DA (Dense)", plsda_pipeline, plsda_grid)
+        
+        mcc_plsda = np.mean([m['mcc'] for m in engine.results_["PLS-DA (Dense)"]['fold_details']])
+        stab_plsda = engine.calculate_stability_index("PLS-DA (Dense)", total_features=n_features)
+        
+        mcc_plsda_history.append(mcc_plsda)
+        stab_plsda_history.append(stab_plsda)
+        
+        # 3. Evaluate sPLS-DA (Algebra)
         splsda_pipeline = Pipeline([('model', RWrapper(method='splsda'))])
-        splsda_grid = {'model__n_components': [2], 'model__sparsity_penalty': [0.1, 0.5]}
+        splsda_grid = {'model__n_components': [2], 'model__sparsity_penalty': [0.1, 0.125, 0.25, 0.5]}
         
         engine.run_benchmark(X, y, "sPLS-DA", splsda_pipeline, splsda_grid)
         
@@ -85,6 +109,7 @@ def main():
     fig.suptitle('Algorithmic Degradation under Biological Noise Stress', fontsize=16, fontweight='bold', y=1.05)
     
     # Panel 1: Predictive Power (MCC)
+    ax1.plot(total_features_list, mcc_plsda_history, marker='^', linewidth=2, label='PLS-DA (Dense)', color='#27ae60')
     ax1.plot(total_features_list, mcc_splsda_history, marker='o', linewidth=2, label='sPLS-DA (Algebra)', color='#e74c3c')
     ax1.plot(total_features_list, mcc_tm_history, marker='s', linewidth=2, label='Tsetlin Machine (Logic)', color='#2980b9')
     ax1.set_title('Impact on Predictive Performance (MCC)', fontsize=13)
@@ -95,6 +120,7 @@ def main():
     ax1.grid(True, linestyle=':', alpha=0.7)
     
     # Panel 2: Algorithmic Stability (Jaccard Index)
+    ax2.plot(total_features_list, stab_plsda_history, marker='^', linewidth=2, label='PLS-DA Stability', color='#27ae60', linestyle='-.')
     ax2.plot(total_features_list, stab_splsda_history, marker='o', linewidth=2, label='sPLS-DA Stability', color='#e74c3c', linestyle='-.')
     ax2.plot(total_features_list, stab_tm_history, marker='s', linewidth=2, label='TM Stability', color='#2980b9', linestyle='-.')
     ax2.set_title('Impact on Selection Stability (Jaccard Index)', fontsize=13)

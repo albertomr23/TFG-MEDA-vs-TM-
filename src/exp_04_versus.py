@@ -1,4 +1,13 @@
-# src/exp_06_pure_comparison.py
+"""
+===============================================================================
+EXPERIMENT 04: VERSUS BENCHMARK (PURE LOGIC vs ALGEBRA)
+
+Autor: Alberto Munuera Ramos
+Date: June 2026
+University: UGR
+
+===============================================================================
+"""
 
 import numpy as np
 import pandas as pd
@@ -27,7 +36,7 @@ warnings.filterwarnings('ignore')
 
 def main():
     print("=========================================================")
-    print(" ⚔️  THE ULTIMATE CLASH: PURE LOGIC VS ALGEBRA ")
+    print("   THE ULTIMATE CLASH: PURE LOGIC VS ALGEBRA ")
     print("=========================================================\n")
     
     X, y, feature_names, dataset_type, project_root = select_and_load_dataset()
@@ -196,7 +205,7 @@ def main():
     fig4.savefig(os.path.join(results_dir, f"[{dataset_type}]_04_EfficiencyScatter.png"), dpi=300, bbox_inches='tight')
     plt.close(fig4)
 
-    print("✅ All advanced visualizations correctly separated and saved in /results/versus/!")
+    print(" All advanced visualizations correctly separated and saved in /results/versus/!")
 
 if __name__ == "__main__":
     main()
