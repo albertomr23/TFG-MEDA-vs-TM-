@@ -40,29 +40,25 @@ This repository implements a multi-faceted machine learning pipeline comparing t
 TFG-MEDA-vs-TM/
 ├── README.md                           # This file
 ├── requirements.txt                    # Python dependencies
-├── CODEBASE_ANALYSIS_REPORT.md        # Detailed code quality analysis
-├── ISSUES_QUICK_REFERENCE.md          # Quick reference for identified issues
-├── RECOMMENDED_FIXES.md               # Proposed solutions and refactoring steps
 │
 ├── data/                              # Dataset files
 │   ├── dataset_simulado_3000.xlsx     # Simulated: 3000 patients, 40 biomarkers
 │   ├── dataset_simulado2.xlsx         # High-dim: 50 patients, 4000 features
 │   └── dataset_real.xlsx              # Clinical: 82 patients, real biomarkers
-│
+|
 ├── src/                               # Main source code
-│   ├── main.py                        # Entry point (interactive menu)
+│   ├── main.py                        # Global Orchestrator & CLI entry point
 │   │
-│   ├── exp_*.py                       # Experiment scripts
-│   │   ├── exp_noise_01.py           # Robustness under Gaussian noise
-│   │   ├── exp_bool_02.py            # Pure TM with boolean features
-│   │   ├── exp_interpretability_03.py # Feature importance analysis
-│   │   ├── exp_meda_04_v2.py         # Baseline MEDA methods (sPLS, sPCA, ASCA, vASCA)
-│   │   ├── exp_05_hybrid.py          # Hybrid TM ↔ MEDA combinations
-│   │   ├── exp_06_pure_comparison.py # Categorical comparison: SVM vs TM
-│   │   ├── exp_07_extract_rules.py   # TM clause rule extraction
-│   │   ├── exp_08_inverse_hybrid_latent.py   # Novel: TM→sPLSDA/vASCA→SVM
-│   │   ├── exp_09_inv_hybrid_svm.py  # Variant: TM→SVM pipeline
-│   │   └── exp_10_final_translator.py # Clinical translation & interpretability
+│   ├── exp_01_noise.py                # Exp 1: Robustness under Gaussian noise
+│   ├── exp_02_bool.py                 # Exp 2: Booleanizer resolution impact
+│   ├── exp_03_meda.py                 # Exp 3: Pure MEDA baseline (LR vs SVM)
+│   ├── exp_04_versus.py               # Exp 4: The Ultimate Clash (TM vs MEDA)
+│   ├── exp_05_hybrid.py               # Exp 5: Forward Hybridization (MEDA -> TM)
+│   ├── exp_06_extract_rules.py        # Exp 6: Comparative XAI Rule Extraction
+│   ├── exp_07_inverse_hybrid_latent.py # Exp 7: Latent Collapse (TM -> sPLSDA/vASCA)
+│   ├── exp_08_inv_hybrid_svm.py       # Exp 8: Logic-to-Geometry (TM -> Linear SVM)
+│   └── exp_09_final_translator.py     # Exp 9: Clinical translation & White-Box XAI
+│   |
 │   │
 │   ├── models/                        # Core ML wrappers
 │   │   ├── tm_wrapper.py             # Tsetlin Machine scikit-learn compatible wrapper
@@ -84,9 +80,14 @@ TFG-MEDA-vs-TM/
 │   ├── evaluation/                    # Evaluation utilities
 │   │   └── benchmark_engine.py        # Cross-validation & metrics computation
 │   │
-│   ├── test_*.py                      # Unit tests
-│   ├── debug_*.py                     # Debugging scripts
-│   └── simulated*.py                  # Dataset generation utilities
+│   ├── pipelines/                     # Pipelines modules
+│   │   └── meda_filter.py             # MEDA filter used in exps
+|
+│   ├── utils/                         # Common scripts used in experiments
+│   │   └── data_loader.py             # Cross-validation & metrics computation
+|
+│   ├── pre-tests/                     # Test created for debugging
+│   │   └── ...
 │
 ├── notebooks/                         # Jupyter notebooks (exploratory analysis)
 │
@@ -136,7 +137,7 @@ devtools::install_github("user/R-package-name")  # If needed
 
 ### Step 4: Verify Installation
 ```bash
-python src/main.py
+python/python3 src/main.py
 ```
 
 ---
@@ -145,7 +146,7 @@ python src/main.py
 
 ### Interactive Menu (Recommended)
 ```bash
-python src/main.py
+python/python3 src/main.py
 ```
 
 This launches an interactive menu where you can:
@@ -154,74 +155,64 @@ This launches an interactive menu where you can:
 3. Automatically generate visualizations and metrics
 
 ### Run Specific Experiment
-```bash
-# Pure TM comparison
-python src/exp_06_pure_comparison.py
+If you prefer to bypass the interactive menu, you can execute modules directly:
 
-# Novel inverse hybrid architecture
-python src/exp_08_inverse_hybrid_latent.py
+```bash
+# Pure MEDA baseline evaluation
+python/python3 src/exp_03_meda.py
+
+# Head-to-Head: Pure Logic vs Pure Algebra
+python/python3 src/exp_04_versus.py
+
+# Novel Logic-to-Geometry Architecture
+python/python3 src/exp_08_inv_hybrid_svm.py
 
 # Clinical rule extraction & interpretation
-python src/exp_10_final_translator.py
-
-# MEDA baseline methods
-python src/exp_meda_04_v2.py
+python/python3 src/exp_09_final_translator.py
 ```
 
 ---
 
 ## 📊 Core Experiments
 
-### Experiment 1: Noise Robustness (`exp_noise_01.py`)
-- Tests model stability under Gaussian noise (σ = 0.1 to 1.0)
-- Metric: MCC degradation curve
-- Purpose: Assess real-world robustness
+### Experiment 1: Noise Stress Test (`exp_01_noise.py`)
+- Tests model stability under Gaussian noise (increasing noisy features)
+- Metric: MCC degradation curve and Jaccard Stability
+- Purpose: Assess structural robustness against biological noise.
 
-### Experiment 2: Pure TM Analysis (`exp_bool_02.py`)
-- Evaluates Tsetlin Machine on raw boolean features
-- Baseline for hybrid comparisons
-- Outputs: Clause importance rankings
+### Experiment 2: Booleanizer Resolution Impact (`exp_02_bool.py`)
+- Evaluates the state-space explosion when increasing discretization bins.
+- Purpose: Find the optimal balance between mathematical resolution and combinatorial overfitting.
 
-### Experiment 3: Feature Interpretability (`exp_interpretability_03.py`)
-- Extracts feature importance from TM clauses
-- Compares with MEDA variable selection
-- Outputs: Feature ranking heatmaps
+### Experiment 3: Pure MEDA Evaluation (`exp_03_meda.py`)
+- Establishes the classical geometric baseline (sPLS-DA, PCA, ASCA, vASCA).
+- Classifiers: Logistic Regression vs. Non-linear SVM.
+- Outputs: Multi-panel ROC curves and topological decision boundaries.
 
-### Experiment 4: MEDA Baseline (`exp_meda_04_v2.py`)
-- Implements sPLS-DA, sPCA, ASCA, vASCA methods
-- Cross-validation with MCC & F1-Score metrics
-- Outputs: Comparative performance visualizations
+### Experiment 4: The Ultimate Clash (`exp_04_versus.py`)
+- Head-to-head paradigm comparison: Pure Logic (TM) vs. Pure Algebra (vASCA+SVM).
+- Outputs: Radar charts, execution efficiency, and McNemar Agreement matrices proving algorithmic orthogonality.
 
-### Experiment 5: Hybrid Architectures (`exp_05_hybrid.py`)
-- Tests combinations: TM + MEDA + SVM
-- Evaluates synergistic potential
-- Outputs: Architecture comparison charts
+### Experiment 5: Forward Hybridization (`exp_05_hybrid.py`)
+- Tests conventional cascade: Algebraic Filter → Logical Classifier.
+- Discovers the **"Algebraic Bottleneck"**, proving continuous filters destroy epistatic vocabulary.
 
-### Experiment 6: Pure Comparison (`exp_06_pure_comparison.py`)
-- Head-to-head: SVM vs. TM vs. Hybrid
-- Different kernel/clause configurations
-- Outputs: Tournament-style rankings
+### Experiment 6: Comparative Rule Extraction (`exp_06_extract_rules.py`)
+- White-Box XAI audit using the custom `ClinicalTranslator`.
+- Physically demonstrates how upstream MEDA filters force downstream TM to hallucinate "Spaghetti Rules".
 
-### Experiment 7: Rule Extraction (`exp_07_extract_rules.py`)
-- Converts TM clauses into human-readable logic
-- Format: "IF (biomarker_i AND biomarker_j) THEN pathology"
-- Purpose: Clinical interpretability
+### Experiment 7: Latent Collapse (`exp_07_inverse_hybrid_latent.py`)
+- Tests the Inverse pipeline: TM clauses → sPLS-DA/vASCA.
+- Proves the "Zero-Variance Crash": continuous models cannot parse discrete Hamming spaces.
+- Discovers the formation of **"Logical Islands"**.
 
-### Experiment 8: Inverse Hybrid (Novel) (`exp_08_inverse_hybrid_latent.py`)
-- **Key Innovation**: TM as upstream feature extractor
-- Pipeline: Raw Biomarkers → **TM Clauses** → sPLSDA/vASCA → SVM
-- Tests latent space collapse hypothesis
-- Outputs: Topological proof via PCA projections
+### Experiment 8: Logic-to-Geometry Pipeline (`exp_08_inv_hybrid_svm.py`)
+- The definitive architecture: TM (Epistatic Extractor) → Linear SVM (Margin Maximization).
+- Solves the clinical entangled topology without suffering the curse of dimensionality.
 
-### Experiment 9: Inverse SVM Variant (`exp_09_inv_hybrid_svm.py`)
-- Simplified inverse: TM → SVM directly
-- Faster execution, comparable performance
-
-### Experiment 10: Clinical Translation (`exp_10_final_translator.py`)
-- Integrates all findings for clinical use
-- Outputs: Epistatic rule sets + confidence scores
-- Format: Ready for clinical validation studies
-
+### Experiment 9: Final Clinical Translation (`exp_09_final_translator.py`)
+- Maps geometric SVM weights back to raw boolean logical clauses.
+- Outputs: Actionable, human-readable immunological rules detailing the non-linear cytokine collapse in Peritonitis.
 ---
 
 ## 📈 Key Metrics
@@ -261,28 +252,6 @@ Adaptive binning strategy:
 - Error handling with fallbacks
 
 ---
-
-## ⚠️ Known Issues & Code Quality Notes
-
-The codebase has evolved through multiple experimental iterations. Several structural improvements are documented in:
-
-- **[CODEBASE_ANALYSIS_REPORT.md](CODEBASE_ANALYSIS_REPORT.md)** — Comprehensive analysis with 35+ identified issues
-- **[ISSUES_QUICK_REFERENCE.md](ISSUES_QUICK_REFERENCE.md)** — Priority checklist
-- **[RECOMMENDED_FIXES.md](RECOMMENDED_FIXES.md)** — Concrete refactoring solutions
-
-### Critical Issues (Priority Fixes):
-1. ❌ Wrong import in `tm_wrapper.py` (line 4): `from yaml import warnings` → should be `import warnings`
-2. ⚠️ Code duplication: `MEDAFilter` class defined 6x across exp files
-3. ⚠️ Function duplication: `select_and_load_dataset()` repeated 7x
-4. 🔧 Hardcoded column indices (0, 15, 16) make datasets brittle
-5. 🔧 Silent vASCA failures (singular matrix) not properly caught
-
-### Recommended Next Steps:
-- **Short-term**: Fix imports and error handling (2-3 hours)
-- **Medium-term**: Refactor common code into shared modules (3-4 hours)
-- **Long-term**: Add type annotations & comprehensive unit tests (2-3 hours)
-
-See [RECOMMENDED_FIXES.md](RECOMMENDED_FIXES.md) for detailed solutions.
 
 ---
 
@@ -325,7 +294,7 @@ Key citations informing this thesis:
 **Author:** Alberto Munuera Ramos  
 **Institution:** University of Granada (UGR)  
 **Program:** Double Degree in Computer Engineering & Mathematics  
-**Email:** (contact information)  
+**Email:** e.amunuerar@go.ugr.es 
 
 For questions, suggestions, or collaboration opportunities related to this research, please reach out.
 
@@ -352,13 +321,13 @@ This thesis project is provided as-is for educational and research purposes.
 
 ## 📚 Supplementary Materials
 
-- **Thesis Document**: (PDF link when completed)
-- **Presentation Slides**: (Slides on GitHub)
-- **Supplementary Data**: (Results directory with visualizations)
+- **Thesis Document**: Included in the repository
+- **Presentation Slides**: Included in the repository(To be added)
+- **Supplementary Data**: Results directory
 - **Code Documentation**: See inline comments and docstrings
 
 ---
 
-**Last Updated:** June 1, 2026  
+**Last Updated:** June 13, 2026  
 **Repository Status:** Active Development  
-**Thesis Status:** In Progress
+**Thesis Status:** Nearly finished
